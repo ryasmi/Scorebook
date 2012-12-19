@@ -16,3 +16,5 @@ Using the Scorebook library
  * intro.js
  * core.js
  * outro.js
+4. Use your new JavaScript file in your project.
+5. To create a new match use foobar = new Scorebook()

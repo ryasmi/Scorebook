@@ -95,7 +95,9 @@
   }
 
   function pop() {
-    var list = !(d.innings.length === d.overs[d.overs.length - 1].inningId + 1) ? d.innings : !(d.overs.length === d.balls[d.balls.length - 1].overId + 1) ? d.overs : !(d.balls[d.balls.length - 1].wicketId !== 0) ? d.balls : d.wickets;
+    var list = !(d.innings.length === d.overs[d.overs.length - 1].inningId + 1) ? d.innings : 
+      !(d.overs.length === d.balls[d.balls.length - 1].overId + 1) ? d.overs : 
+      !(d.balls[d.balls.length - 1].wicketId !== 0) ? d.balls : d.wickets;
 
     list.pop();
     return true;

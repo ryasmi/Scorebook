@@ -74,12 +74,12 @@
   function pushWicket(batsmanId, fielderId, howOut) {
     // Ten ways to get out http://news.bbc.co.uk/sport1/hi/cricket/rules_and_equipment/4180344.stm
     // Duck check.
-    var valid = (new RegExp("^(bowled|lbw|handled the ball|hit wicket|hit the ball twice)$", "i")).test(howOut) ? "bowler" : 
-      (new RegExp("^(caught|stumped)$", "i")).test(howOut) ? "both" : 
-      (new RegExp("^(runout)$", "i")).test(howOut) ? "fielder" : 
-      (new RegExp("^(obstruction|timed out)$", "i")).test(howOut) ? "none" : false,
-      bowlerId = valid === "bowler" || valid === "both" ? d.overs[d.overs.length - 1].bowlerId : -1,
-      fielderId = valid === "fielder" || valid === "both" ? fielderId : -1;
+    var valid = (new RegExp("^(bowled|lbw|handled the ball|hit wicket|hit the ball twice)$", "i")).test(howOut) ? "bowler" :
+          (new RegExp("^(caught|stumped)$", "i")).test(howOut) ? "both" :
+          (new RegExp("^(runout)$", "i")).test(howOut) ? "fielder" :
+          (new RegExp("^(obstruction|timed out)$", "i")).test(howOut) ? "none" : false,
+      bowlerId = valid === "bowler" || valid === "both" ? d.overs[d.overs.length - 1].bowlerId : -1;
+    if (valid !== "fielder" && valid !== "both") {fielderId = -1}
 
     // Functionality.
     if (valid !== false) {
@@ -95,12 +95,26 @@
   }
 
   function pop() {
-    var list = !(d.innings.length === d.overs[d.overs.length - 1].inningId + 1) ? d.innings : 
-      !(d.overs.length === d.balls[d.balls.length - 1].overId + 1) ? d.overs : 
-      !(d.balls[d.balls.length - 1].wicketId !== 0) ? d.balls : d.wickets;
+    var list = !(d.innings.length === d.overs[d.overs.length - 1].inningId + 1) ? d.innings :
+          !(d.overs.length === d.balls[d.balls.length - 1].overId + 1) ? d.overs :
+          !(d.balls[d.balls.length - 1].wicketId !== 0) ? d.balls : d.wickets;
 
     list.pop();
     return true;
+  }
+
+  function pullInning(inningId, battingTeam) {
+    returnInnings = [];
+    isInning = inningId ? function () {return i === inningId} : true;
+    isBattingTeam = battingTeam ? function () {return innings[i].battingTeam === battingTeam} : true;
+
+    for (i = 0; i < innings.length; i += 1) {
+      if ((isBattingTeam()) && (isInning()){
+        returnInnings.push(innings[i]);
+      }
+    }
+
+    return returnInnings;
   }
 
   // Shortcut to current scorebook.

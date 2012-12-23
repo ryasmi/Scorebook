@@ -117,7 +117,7 @@
     return returnInnings;
   }
 
-  // Shortcut to current scorebook.
+  // Public functions and variables.
   return {
     "addInnings": pushInning,
     "addOver": pushOver,

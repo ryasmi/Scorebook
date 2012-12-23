@@ -126,3 +126,6 @@
     "undo": pop,
     "data": d
   };
+
+  // TODO: Better comments.
+  // TODO: Add pull functions.

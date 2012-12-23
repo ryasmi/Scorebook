@@ -1,6 +1,5 @@
 [Scorebook](https://www.github.com/ryansmith94/Scorebook)
 =========
-
 A cricket scoring library.
 
 
@@ -10,7 +9,6 @@ Using the Scorebook library
  * Library/intro.js
  * Library/core.js
  * Library/outro.js
-
 2. Create a new JavaScript file (i.e. scorebook.js)
 3. Put the code from the 3 downloaded files in this order:
  * intro.js
@@ -18,3 +16,17 @@ Using the Scorebook library
  * outro.js
 4. Use your new JavaScript file in your project.
 5. To create a new match use foobar = new Scorebook()
+
+
+Public Functions
+--------------------------------------
+addInnings()
+addOver()
+addBall()
+addWicket()
+undo()
+
+
+Public Variables
+--------------------------------------
+data

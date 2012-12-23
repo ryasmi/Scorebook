@@ -20,13 +20,13 @@ Using the Scorebook library
 
 Public Functions
 --------------------------------------
-addInnings()
-addOver()
-addBall()
-addWicket()
-undo()
+* addInnings()
+* addOver()
+* addBall()
+* addWicket()
+* undo()
 
 
 Public Variables
 --------------------------------------
-data
+* data

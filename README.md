@@ -1,5 +1,5 @@
 # [Scorebook](https://www.github.com/ryansmith94/Scorebook)
-A cricket scoring library.
+A cricket scoring library created for use in cricket scoring applications and cricket games that require scoring. The library is incredibly flexible allowing for different rules sets, match lengths and includes options for recording the pitch of the ball while bowling and where the ball goes whilst batting. This can provide useful statistics and allow the creation of wagon wheels and the like.
 
 
 ## Library

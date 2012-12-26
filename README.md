@@ -1,10 +1,8 @@
-[Scorebook](https://www.github.com/ryansmith94/Scorebook)
-=========
+# [Scorebook](https://www.github.com/ryansmith94/Scorebook)
 A cricket scoring library.
 
 
-Using the Scorebook library
---------------------------------------
+## Using the Scorebook library
 1. Download:
  * Library/intro.js
  * Library/core.js
@@ -18,8 +16,7 @@ Using the Scorebook library
 5. To create a new match use foobar = new Scorebook()
 
 
-Public Functions
---------------------------------------
+### Public Functions
 * addInnings(battingTeam)
 * addOver(bowlerId)
 * addBall(batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, dateTime)
@@ -31,6 +28,6 @@ Public Functions
 * getWickets() [COMING SOON]
 
 
-Public Variables
+### Public Variables
 --------------------------------------
 * data

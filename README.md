@@ -2,7 +2,8 @@
 A cricket scoring library.
 
 
-## Using the Scorebook library
+## Library
+### How To Use It
 1. Download:
  * Library/intro.js
  * Library/core.js

@@ -31,4 +31,37 @@ A cricket scoring library created for use in cricket scoring applications and cr
 
 ### Public Variables
 * data
-  * test
+  * innings
+  * overs
+  * balls
+  * wickets
+
+### Classes
+* Inning
+  * id
+  * battingTeam
+* Over
+  * id
+  * inningsId
+  * bowlerId
+* Ball
+  * id
+  * overId
+  * batsmanId
+  * runs
+  * wideBall
+  * noBall
+  * byes
+  * legByes
+  * wicketId
+  * wagonX
+  * wagonY
+  * pitchX
+  * pitchY
+  * dateTime
+* Wicket
+  * id
+  * batsmanId
+  * bowlerId
+  * fielderId
+  * howOut

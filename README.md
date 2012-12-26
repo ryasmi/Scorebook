@@ -31,4 +31,4 @@ A cricket scoring library created for use in cricket scoring applications and cr
 
 ### Public Variables
 * data
-*   test
+  * test

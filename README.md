@@ -50,9 +50,9 @@ A cricket scoring library created for use in cricket scoring applications and cr
 ### Public Variables
 * data (Object)
   * innings (Array of type Inning)
-  * overs (Arrany of type Over)
-  * balls (Arrany of type Ball)
-  * wickets (Arrany of type Wicket)
+  * overs (Array of type Over)
+  * balls (Array of type Ball)
+  * wickets (Array of type Wicket)
 
 ### Classes
 * Inning

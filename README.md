@@ -48,38 +48,38 @@ A cricket scoring library created for use in cricket scoring applications and cr
 
 
 ### Public Variables
-* data
-  * innings
-  * overs
-  * balls
-  * wickets
+* data (Object)
+  * innings (Array of type Inning)
+  * overs (Arrany of type Over)
+  * balls (Arrany of type Ball)
+  * wickets (Arrany of type Wicket)
 
 ### Classes
 * Inning
-  * id
-  * battingTeam
+  * id (Expecting Integer)
+  * battingTeam (Expecting Integer)
 * Over
-  * id
-  * inningsId
-  * bowlerId
+  * id (Expecting Integer)
+  * inningsId (Expecting Integer)
+  * bowlerId (Expecting Integer)
 * Ball
-  * id
-  * overId
-  * batsmanId
-  * runs
-  * wideBall
-  * noBall
-  * byes
-  * legByes
-  * wicketId
-  * wagonX
-  * wagonY
-  * pitchX
-  * pitchY
-  * dateTime
+  * id (Expecting Integer)
+  * overId (Expecting Integer)
+  * batsmanId (Expecting Integer)
+  * runs (Expecting Integer)
+  * wideBall (Expecting Boolean)
+  * noBall (Expecting Boolean)
+  * byes (Expecting Boolean)
+  * legByes (Expecting Boolean)
+  * wicketId (Expecting Integer)
+  * wagonX (Expecting Integer)
+  * wagonY (Expecting Integer)
+  * pitchX (Expecting Integer)
+  * pitchY (Expecting Integer)
+  * dateTime (Expecting Date/Time)
 * Wicket
-  * id
-  * batsmanId
-  * bowlerId
-  * fielderId
-  * howOut
+  * id (Expecting Integer)
+  * batsmanId (Expecting Integer)
+  * bowlerId (Expecting Integer)
+  * fielderId (Expecting Integer)
+  * howOut (Expecting "bowled", "lbw", "handled the ball", "hit wicket", "hit the ball twice", "caught", "stumped", "runout", "obstruction", "timed out")

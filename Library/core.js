@@ -181,10 +181,3 @@
     //"getWickets" : pullWicket,
     "data": d
   };
-
-  /* TODO
-  * Complete pullBall and pullWicket using pullOver as a template.
-  * TODO: Uncomment the remaining pull/get functions in the return statement.
-  * TODO: Testing of all functions (Creating any issues found on GitHub or changing the code.
-  */
-  // Commit test 26.12.2012 19:26

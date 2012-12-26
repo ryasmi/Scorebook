@@ -29,5 +29,4 @@ A cricket scoring library.
 
 
 ### Public Variables
---------------------------------------
 * data

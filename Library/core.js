@@ -114,7 +114,7 @@
       d.balls[d.balls.length - 1].wicketId = null;
     }
 
-    // Pop an item of the selected list and return true to show that the undo was successful.
+    // Pop an item off the selected list and return true to show that the undo was successful.
     list.pop();
     return true;
   }
@@ -122,13 +122,17 @@
   function pullInning(inningId, battingTeam) {
     // Create a return list and then two functions for instance comparison.
     var returnInnings = [],
-      isInning = inningId ? function () {return i === inningId;} : function () {return true;},
       isBattingTeam = battingTeam ? function () {return innings[i].battingTeam === battingTeam;} : function () {return true;};
 
-    // Attempt to match each innings with the input.
-    for (i = 0; i < innings.length; i += 1) {
-      if (isBattingTeam() && isInning()) {
-        returnInnings.push(innings[i]);
+    if ((inningId !== null) && !battingTeam) {
+      // Optimisation: Pushes the only innings that matches if battingTeam is undefined/null.
+      returnInnings.push(innings[inningId]);
+    } else if (!inningId) {
+      // Attempt to match each inning with the input if inningId is undefined/null.
+      for (i = 0; i < innings.length; i += 1) {
+        if (isBattingTeam()) {
+          returnInnings.push(innings[i]);
+        }
       }
     }
 
@@ -136,7 +140,24 @@
   }
 
   function pullOver(inningId, overId, bowlerId) {
-    return true;
+    // Create a return list and then two functions for instance comparison.
+    var returnOvers = [],
+      isBowler = bowlerId ? function () {return overs[i].bowlerId === bowlerId;} : function () {return true;};
+      isInning = inningId ? function () {return overs[i].inningId === inningId;} : function () {return true;};
+
+    if ((overId !== null) && !bowlerId && !inningId) {
+      // Optimisation: Pushes the only overs that matches if bowlerId and inningId is undefined/null.
+      returnOvers.push(overs[overId]);
+    } else if (!overId) {
+      // Attempt to match each over with the input if overId is undefined/null.
+      for (i = 0; i < overs.length; i += 1) {
+        if (isBowler() && isInning()) {
+          returnOvers.push(overs[i]);
+        }
+      }
+    }
+
+    return returnOvers;
   }
 
   function pullBall() {
@@ -161,5 +182,8 @@
     "data": d
   };
 
-  // TODO: Add pull functions.
-  // TODO: Optimisiation. Add some heuristics to pull functions (particularly for id). If an inningsId is given in pullInning it is obvious that only inning can be returned from the list.
+  /* TODO
+  * Complete pullBall and pullWicket using pullOver as a template.
+  * TODO: Uncomment the remaining pull/get functions in the return statement.
+  * TODO: Testing of all functions (Creating any issues found on GitHub or changing the code.
+  */

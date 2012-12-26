@@ -18,15 +18,33 @@ A cricket scoring library created for use in cricket scoring applications and cr
 
 
 ### Public Functions
-* addInnings(battingTeam)
-* addOver(bowlerId)
-* addBall(batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, dateTime)
-* addWicket(batsmanId, fielderId, howOut)
-* undo()
-* getInnings(inningId, battingTeam)
-* getOvers(inningId, overId, bowlerId)
-* getBalls() [COMING SOON]
-* getWickets() [COMING SOON]
+* addInnings
+  * Arguments: battingTeam
+  * Returns: true
+* addOver
+  * Arguments: bowlerId
+  * Returns: true
+* addBall
+  * Arguments: batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, dateTime
+  * Returns: true
+* addWicket
+  * Arguments: batsmanId, fielderId, howOut
+  * Returns: true
+* undo
+  * Arguments: 
+  * Returns: true
+* getInnings
+  * Arguments: inningId, battingTeam
+  * Returns: Array (of type Inning)
+* getOvers
+  * Arguments: inningId, overId, bowlerId
+  * Returns: Array (of type Over)
+* getBalls [COMING SOON]
+  * Arguments: 
+  * Returns: Array (of type Ball)
+* getWickets [COMING SOON]
+  * Arguments: 
+  * Returns: Array (of type Wicket)
 
 
 ### Public Variables

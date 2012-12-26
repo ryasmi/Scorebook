@@ -176,9 +176,9 @@
     "addWicket": pushWicket,
     "undo": pop,
     "getInnings" : pullInning,
-    //"getOver" : pullOver,
-    //"getBall" : pullBall,
-    //"getWicket" : pullWicket,
+    //"getOvers" : pullOver,
+    //"getBalls" : pullBall,
+    //"getWickets" : pullWicket,
     "data": d
   };
 

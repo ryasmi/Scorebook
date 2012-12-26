@@ -20,11 +20,15 @@ Using the Scorebook library
 
 Public Functions
 --------------------------------------
-* addInnings()
-* addOver()
-* addBall()
-* addWicket()
+* addInnings(battingTeam)
+* addOver(bowlerId)
+* addBall(batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, dateTime)
+* addWicket(batsmanId, fielderId, howOut)
 * undo()
+* getInnings(inningId, battingTeam)
+* getOvers(inningId, overId, bowlerId)
+* getBalls() [COMING SOON]
+* getWickets() [COMING SOON]
 
 
 Public Variables

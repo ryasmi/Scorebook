@@ -1,10 +1,10 @@
 # Code Style
 The styling below should be used at all times when contributing JavaScript code to the Scorebook Library.
 
-Please note that the styling below is heavily based on the [JQuery Core Style Guidlines](http://docs.jquery.com/JQuery_Core_Style_Guidelines "JQuery Core Style Guidlines").
+Please note that the styling below is heavily based on the [JQuery Core Style Guidlines](http://docs.jquery.com/JQuery_Core_Style_Guidelines "JQuery/StyleGuidelines").
 
 ## JSLint
-All files that are used in the public build are checked using [JSLint](http://www.jslint.com/ "JSLint").
+All files that are used in the public build are checked using [JSLint](http://www.jslint.com/ "JSLint website").
 
 The following are to be ignored when using Library/core.js:
 * `Combine this with the previous 'var' statement`.

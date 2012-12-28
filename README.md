@@ -3,16 +3,14 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
 
 
 ## Library
-### How To Use It
+### How To Use It (Temporarily)
 1. Download:
  * Library/intro.js
  * Library/core.js
- * Library/outro.js
 2. Create a new JavaScript file (i.e. scorebook.js)
 3. Put the code from the 3 downloaded files in this order:
  * intro.js
  * core.js
- * outro.js
 4. Use your new JavaScript file in your project.
 5. To create a new match use foobar = new Scorebook()
 

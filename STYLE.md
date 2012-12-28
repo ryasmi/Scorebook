@@ -21,6 +21,7 @@ The following are to be ignored when using Library/core.js:
 * On a single line use no more than single space (e.g. `var x = 10`, not `var x    = 10`).
 * Use no whitespace at the end of a line.
 * Use spaces between all operators (e.g. `+`, `=`, `===`, `:`, etc).
+* Blank lines should contain no white space.
 
 ## Comments
 * Comments should always have a space before them and use good english (e.g. `// Comment.`).
@@ -30,28 +31,28 @@ The following are to be ignored when using Library/core.js:
 ## Blocks
 Always use correct blocks when writing if/while/for/etc statements (see correct use below).
 
-  if (true === true) {
-    doSomething();
-  }
-  else {
-    doSomethingElse();
-  }
+    if (true === true) {
+        doSomething();
+    }
+    else {
+        doSomethingElse();
+    }
 
 ## Brackets
 Brackets should not use additional spaces (see below).
 
-  // Correct.
-  (x, y)
+    // Correct.
+    (x, y)
 
-  // Incorrect.
-  ( x, y )
+    // Incorrect.
+    ( x, y )
 
 ## Conditionals
 Conditionals (such as ifs) must always be surrounded by brackets (see correct use below).
 
-  if (true === (true === true)) {
-    doSomething();
-  }
+    if (true === (true === true)) {
+        doSomething();
+    }
 
 Always use `===` or `!===` not `==` or `!==` when checking equality.
 
@@ -62,9 +63,9 @@ Semicolons should always be followed by an endline.
 
 Assignments in a declaration should always be on their own line. Declarations that don't have an assignment should be listed together at the start of the declaration. For example:
 
-  var a, b, c,
-    test = true,
-    test2 = false;
+    var a, b, c,
+        test = true,
+        test2 = false;
 
 ## Regular Expressions
 All RegExp operations should be done using `.test()` and `.exec().`

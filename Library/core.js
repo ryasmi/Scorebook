@@ -1,6 +1,9 @@
+var scorebook = function (data, undefined) {
+  "use strict";
   var d = data;
 
   // Check if any data is not defined and define it as an empty list.
+  d = d || {};
   d.innings = d.innings || [];
   d.overs = d.overs || [];
   d.balls = d.balls || [];
@@ -33,21 +36,23 @@
 
   function pushOver(bowlerId) {
     d.overs.push({
-      "id" : d.overs.length,
       "inningId" : d.innings.length - 1,
+      "id" : d.overs.length,
       "bowlerId" : bowlerId
     });
 
     return true;
   }
 
-  function pushBall(batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, dateTime) {
+  function pushBall(batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen, dateTime) {
     // Duck Typing.
     runs = testInt(runs);
     wagonX = testInt(wagonX);
     wagonY = testInt(wagonY);
     pitchX = testInt(pitchX);
     pitchY = testInt(pitchY);
+    batPen = testInt(batPen);
+    bwlPen = testInt(bwlPen);
 
     wicket = testBool(wicket);
     wideBall = testBool(wideBall);
@@ -57,10 +62,13 @@
 
     dateTime = testDate(dateTime);
 
+    // If no batsman id has been provided, use the last one if it is still the same over.
+    batsmanId = batsmanId || (d.overs[d.overs.length - 1] = d.balls[d.balls.length - 1].overId ? d.balls[d.balls.length - 1].batsmanId : null);
+
     // Create a new ball.
     d.balls.push({
-      "id" : d.balls.length,
       "overId" : d.overs.length - 1,
+      "id" : d.balls.length,
       "batsmanId" : batsmanId,
       "runs" : runs,
       "wideBall" : wideBall,
@@ -72,25 +80,28 @@
       "wagonY" : wagonY,
       "pitchX" : pitchX,
       "pitchY" : pitchY,
+      "batPen" : batPen,
+      "bwlPen" : bwlPen,
       "dateTime" : dateTime
     });
 
     return true;
   }
 
-  function pushWicket(batsmanId, fielderId, howOut) {
+  function pushWicket(batsmanId, howOut, fielderId) {
     // Ten ways to get out http://news.bbc.co.uk/sport1/hi/cricket/rules_and_equipment/4180344.stm
     // Duck check.
-    var valid = (new RegExp("^(bowled|lbw|handled the ball|hit wicket|hit the ball twice)$", "i")).test(howOut) ? "bowler" :
-          (new RegExp("^(caught|stumped)$", "i")).test(howOut) ? "both" :
-          (new RegExp("^(runout)$", "i")).test(howOut) ? "fielder" :
-          (new RegExp("^(obstruction|timed out)$", "i")).test(howOut) ? "none" : false,
+    var valid = (/^(bowled|lbw|handled the ball|hit wicket|hit the ball twice)$/).test(howOut) ? "bowler" :
+          (/^(caught|stumped)$/).test(howOut) ? "both" :
+          (/^(runout)$/).test(howOut) ? "fielder" :
+          (/^(obstruction|timed out)$/).test(howOut) ? "none" : false,
       bowlerId = ((valid === "bowler") || (valid === "both")) ? d.overs[d.overs.length - 1].bowlerId || null : null;
       fielderId = ((valid === "fielder") || (valid === "both")) ? fielderId || null : null;
 
     // Create a new wicket if duck checks were successful.
     if (valid !== false) {
       d.wickets.push({
+        "ballId" : d.balls.length,
         "id" : d.wickets.length,
         "batsmanId": batsmanId,
         "bowlerId": bowlerId,
@@ -119,19 +130,34 @@
     return true;
   }
 
-  function pullInning(inningId, battingTeam) {
-    // Create a return list and then two functions for instance comparison.
-    var returnInnings = [],
-      isBattingTeam = battingTeam ? function () {return innings[i].battingTeam === battingTeam;} : function () {return true;};
+  function compareValues(thisObject, thatObject, objKeys) {
+    var match = true,
+      objKeys = objKeys || Object.keys(thatObject),
+      i;
 
-    if ((inningId !== null) && !battingTeam) {
-      // Optimisation: Pushes the only innings that matches if battingTeam is undefined/null.
-      returnInnings.push(innings[inningId]);
-    } else if (!inningId) {
-      // Attempt to match each inning with the input if inningId is undefined/null.
-      for (i = 0; i < innings.length; i += 1) {
-        if (isBattingTeam()) {
-          returnInnings.push(innings[i]);
+    for (i = 0; i < objKeys.length; i += 1) {
+      if (thisObject[objKeys[i]] !== thatObject[objKeys[i]]) {
+        match = false;
+      }
+    }
+
+    return match;
+  }
+
+  function pullInnings(inning) {
+    var returnInnings = [];
+
+    if (inning ? inning.id : false) {
+      returnInnings.push(d.innings[inning.id]);
+    }
+    else {
+      var nInnings = d.innings.length,
+        objKeys = inning ? Object.keys(inning) : [],
+        i;
+
+      for (i = 0; i < nInnings; i += 1) {
+        if (compareValues(d.innings[i], inning, objKeys)) {
+          returnInnings.push(d.innings[i]);
         }
       }
     }
@@ -139,20 +165,22 @@
     return returnInnings;
   }
 
-  function pullOver(inningId, overId, bowlerId) {
-    // Create a return list and then two functions for instance comparison.
-    var returnOvers = [],
-      isBowler = bowlerId ? function () {return overs[i].bowlerId === bowlerId;} : function () {return true;};
-      isInning = inningId ? function () {return overs[i].inningId === inningId;} : function () {return true;};
+  function pullOvers(inning, over) {
+    var returnOvers = [];
 
-    if ((overId !== null) && !bowlerId && !inningId) {
-      // Optimisation: Pushes the only overs that matches if bowlerId and inningId is undefined/null.
-      returnOvers.push(overs[overId]);
-    } else if (!overId) {
-      // Attempt to match each over with the input if overId is undefined/null.
-      for (i = 0; i < overs.length; i += 1) {
-        if (isBowler() && isInning()) {
-          returnOvers.push(overs[i]);
+    if (over ? over.id : false) {
+      if (compareValues(d.innings[d.overs[over.id].inningId], inning, null)) {
+        returnOvers.push(d.overs[over.id]);
+      }
+    }
+    else {
+      var nOvers = d.overs.length,
+        objKeys = over ? Object.keys(over) : [],
+        i;
+
+      for (i = 0; i < nOvers; i += 1) {
+        if (compareValues(d.overs[i], over, objKeys)) {
+          returnOvers.push(d.overs[i]);
         }
       }
     }
@@ -160,12 +188,66 @@
     return returnOvers;
   }
 
-  function pullBall() {
-    return true;
+  function pullBalls(inning, over, ball) {
+    var returnBalls = [],
+      matchedOvers = pullOvers(inning, over);
+
+    if (ball ? ball.id : false) {
+      if (matchedOvers[0].id === d.balls[ball.id].overId) {
+        returnBalls.push(d.balls[ball.id]);
+      }
+    }
+    else {
+      var nBalls = d.balls.length,
+        nOvers = matchedOvers.length,
+        objKeys = ball ? Object.keys(ball) : [],
+        i,
+        o;
+
+      for (i = 0; i < nBalls; i += 1) {
+        if (compareValues(d.balls[i], ball, objKeys)) {
+          for (o = 0; o < nOvers; o += 1) {
+            if (matchedOvers[o].id === d.balls[i].overId) {
+              returnBalls.push(d.balls[i]);
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    return returnBalls;
   }
 
-  function pullWicket() {
-    return true;
+  function pullWickets(inning, over, ball, wicket) {
+    var returnWickets = [],
+      matchedBalls = pullBalls(inning, over, ball);
+
+    if (wicket ? wicket.id : false) {
+      if (matchedBalls[0].id === d.wickets[wicket.id].ballId) {
+        returnWickets.push(d.wickets[wicket.id]);
+      }
+    }
+    else {
+      var nWickets = d.wickets.length,
+        nBalls = matchedBalls.length,
+        objKeys = wicket ? Object.keys(wicket) : [],
+        i,
+        o;
+
+      for (i = 0; i < nWickets; i += 1) {
+        if (compareValues(d.wickets[i], wicket, objKeys)) {
+          for (o = 0; o < nBalls; o += 1) {
+            if (matchedBalls[o].id === d.wickets[i].ballId){
+              returnWickets.push(d.wickets[i]);
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    return returnWickets;
   }
 
   // Public functions and variables.
@@ -175,9 +257,10 @@
     "addBall": pushBall,
     "addWicket": pushWicket,
     "undo": pop,
-    "getInnings" : pullInning,
-    //"getOvers" : pullOver,
-    //"getBalls" : pullBall,
-    //"getWickets" : pullWicket,
+    "getInnings" : pullInnings,
+    "getOvers" : pullOvers,
+    "getBalls" : pullBalls,
+    "getWickets" : pullWickets,
     "data": d
   };
+}

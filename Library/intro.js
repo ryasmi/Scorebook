@@ -6,5 +6,3 @@
  *
  * Date: @DATE
  */
-var scorebook = function (data, undefined) {
-  "use strict";

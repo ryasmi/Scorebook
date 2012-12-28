@@ -25,25 +25,27 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
   * Arguments: bowlerId
   * Returns: true
 * addBall
-  * Arguments: batsmanId, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, dateTime
+  * Arguments: batsmanId, [runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen, dateTime]
   * Returns: true
+  * Note: If a wicket was taken, always add a wicket before adding the ball that was bowled prior to taking the wicket.
 * addWicket
-  * Arguments: batsmanId, fielderId, howOut
+  * Arguments: batsmanId, howOut, [fielderId]
   * Returns: true
+  * Note: Always add a wicket before adding the ball that was bowled prior to taking the wicket.
 * undo
   * Arguments: 
   * Returns: true
 * getInnings
-  * Arguments: inningId, battingTeam
+  * Arguments: [inning (of type Inning)]
   * Returns: Array (of type Inning)
 * getOvers
-  * Arguments: inningId, overId, bowlerId
+  * Arguments: [inning (of type Inning), over (of type Over)]
   * Returns: Array (of type Over)
-* getBalls [COMING SOON]
-  * Arguments: 
+* getBalls 
+  * Arguments: [inning (of type Inning), over (of type Over), ball (of type Ball)]
   * Returns: Array (of type Ball)
-* getWickets [COMING SOON]
-  * Arguments: 
+* getWickets 
+  * Arguments: [inning (of type Inning), over (of type Over), ball (of type Ball), wicket (of type Wicket)]
   * Returns: Array (of type Wicket)
 
 
@@ -56,30 +58,33 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
 
 ### Classes
 * Inning
-  * id (Expecting Integer)
+  * id (Integer)
   * battingTeam (Expecting Integer)
 * Over
-  * id (Expecting Integer)
-  * inningsId (Expecting Integer)
+  * id (Integer)
+  * inningsId (Integer)
   * bowlerId (Expecting Integer)
 * Ball
-  * id (Expecting Integer)
-  * overId (Expecting Integer)
+  * id (Integer)
+  * overId (Integer)
   * batsmanId (Expecting Integer)
   * runs (Expecting Integer)
   * wideBall (Expecting Boolean)
   * noBall (Expecting Boolean)
   * byes (Expecting Boolean)
   * legByes (Expecting Boolean)
-  * wicketId (Expecting Integer)
+  * wicketId (Integer)
   * wagonX (Expecting Integer)
   * wagonY (Expecting Integer)
   * pitchX (Expecting Integer)
   * pitchY (Expecting Integer)
+  * batPen (Expecting Integer)
+  * bwlPen (Expecting Integer)
   * dateTime (Expecting Date/Time)
 * Wicket
-  * id (Expecting Integer)
+  * id (Integer)
+  * ballId (Integer)
   * batsmanId (Expecting Integer)
-  * bowlerId (Expecting Integer)
+  * bowlerId (Expect Integer)
   * fielderId (Expecting Integer)
   * howOut (Expecting "bowled", "lbw", "handled the ball", "hit wicket", "hit the ball twice", "caught", "stumped", "runout", "obstruction", "timed out")

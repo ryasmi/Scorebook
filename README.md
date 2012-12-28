@@ -1,6 +1,13 @@
 # [Scorebook](https://www.github.com/ryansmith94/Scorebook)
 A JavaScript library for cricket scoring created for use in cricket scoring applications and cricket games that require scoring. The library is incredibly flexible allowing for different rules sets, match lengths and includes options for recording the pitch of the ball while bowling and where the ball goes whilst batting. This can provide useful statistics and allow the creation of wagon wheels and the like.
 
+## Contributing
+1. Go the [issues](https://github.com/ryansmith94/Scorebook/issues?state=open "scorebook/issues") and see if there is anything that needs doing.
+2. Read the [code styling guidlines](https://github.com/ryansmith94/Scorebook/blob/master/STYLE.md "STYLE.md").
+3. [Fork](https://github.com/ryansmith94/Scorebook/fork "scorebook/fork") the project so that you have your own copy of the repository.
+4. Make the updates you'd like to make on your copy of the repository.
+5. Make a [pull request](https://github.com/ryansmith94/Scorebook/pull/new/master "scorebook/pull-request").
+
 
 ## Library
 ### How To Use It (Temporarily)

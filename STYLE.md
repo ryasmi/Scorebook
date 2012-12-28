@@ -23,8 +23,8 @@ The following are to be ignored when using Library/core.js:
 * Use spaces between all operators (e.g. `+`, `=`, `===`, `:`, etc).
 
 ## Comments
-* Comments should always have a space before them and use good english (e.g. // Comment.).
-* For comments that require multiple lines use /* ... */.
+* Comments should always have a space before them and use good english (e.g. `// Comment.`).
+* For comments that require multiple lines use `/* ... */`.
 * In line comments should always be placed above the line they reference and be preceeded by a blank line.
 
 ## Blocks

@@ -55,7 +55,8 @@ Brackets should always be used around conditional expressions and when there are
 
     x = number1 + (number2 * number3)
 
-## EqualityAlways use `===` or `!===` not `==` or `!==` when checking equality.
+## Equality
+Always use `===` or `!===` not `==` or `!==` when checking equality.
 
 ## Assignment
 Assignments should always have a semicolon after them.

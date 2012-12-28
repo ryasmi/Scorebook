@@ -46,15 +46,16 @@ Brackets should not use additional spaces (see below).
 
     // Incorrect.
     ( x, y )
+    
+Brackets should always be used around conditional expressions and when there are multiple expressions (see below).
 
-## Conditionals
-Conditionals (such as ifs) must always be surrounded by brackets (see correct use below).
-
-    if (true === (true === true)) {
+    if (true === true) {
         doSomething();
     }
 
-Always use `===` or `!===` not `==` or `!==` when checking equality.
+    x = number1 + (number2 * number3)
+
+## EqualityAlways use `===` or `!===` not `==` or `!==` when checking equality.
 
 ## Assignment
 Assignments should always have a semicolon after them.

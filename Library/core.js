@@ -1,4 +1,4 @@
-var scorebook = function (data, undefined) {
+var scorebook = function (data) {
   "use strict";
   var d = data;
 
@@ -63,7 +63,7 @@ var scorebook = function (data, undefined) {
     dateTime = testDate(dateTime);
 
     // If no batsman id has been provided, use the last one if it is still the same over.
-    batsmanId = batsmanId || (d.overs[d.overs.length - 1] = d.balls[d.balls.length - 1].overId ? d.balls[d.balls.length - 1].batsmanId : null);
+    batsmanId = batsmanId || (d.overs[d.overs.length - 1].id === d.balls[d.balls.length - 1].overId ? d.balls[d.balls.length - 1].batsmanId : null);
 
     // Create a new ball.
     d.balls.push({
@@ -263,4 +263,4 @@ var scorebook = function (data, undefined) {
     "getWickets" : pullWickets,
     "data": d
   };
-}
+};

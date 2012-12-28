@@ -12,7 +12,7 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
  * intro.js
  * core.js
 4. Use your new JavaScript file in your project.
-5. To create a new match use foobar = new Scorebook()
+5. To create a new match use `foobar = new Scorebook()`
 
 
 ### Public Functions

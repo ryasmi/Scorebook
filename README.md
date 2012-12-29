@@ -41,55 +41,55 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
   * Arguments: 
   * Returns: true
 * getInnings
-  * Arguments: [inning (of type Inning)]
-  * Returns: Array (of type Inning)
+  * Arguments: [inning *(of type Inning)*]
+  * Returns: Array *(of type Inning)*
 * getOvers
-  * Arguments: [inning (of type Inning), over (of type Over)]
-  * Returns: Array (of type Over)
+  * Arguments: [inning *(of type Inning)*, over *(of type Over)*]
+  * Returns: Array *(of type Over)*
 * getBalls 
-  * Arguments: [inning (of type Inning), over (of type Over), ball (of type Ball)]
-  * Returns: Array (of type Ball)
+  * Arguments: [inning *(of type Inning)*, over *(of type Over)*, ball *(of type Ball)*]
+  * Returns: Array *(of type Ball)*
 * getWickets 
-  * Arguments: [inning (of type Inning), over (of type Over), ball (of type Ball), wicket (of type Wicket)]
-  * Returns: Array (of type Wicket)
+  * Arguments: [inning *(of type Inning)*, over *(of type Over)*, ball *(of type Ball)*, wicket *(of type Wicket)*]
+  * Returns: *Array (of type Wicket)*
 
 
 ### Public Variables
-* data (Object)
-  * innings (Array of type Inning)
-  * overs (Array of type Over)
-  * balls (Array of type Ball)
-  * wickets (Array of type Wicket)
+* data *(Object)*
+  * innings *(Array of type Inning)*
+  * overs *(Array of type Over)*
+  * balls *(Array of type Ball)*
+  * wickets *(Array of type Wicket)*
 
 ### Classes
 * Inning
-  * id (Integer)
-  * battingTeam (Expecting Integer)
+  * id *(Integer)*
+  * battingTeam *(Expecting Integer)*
 * Over
-  * id (Integer)
-  * inningsId (Integer)
-  * bowlerId (Expecting Integer)
+  * id *(Integer)*
+  * inningsId *(Integer)*
+  * bowlerId *(Expecting Integer)*
 * Ball
-  * id (Integer)
-  * overId (Integer)
-  * batsmanId (Expecting Integer)
-  * runs (Expecting Integer)
-  * wideBall (Expecting Boolean)
-  * noBall (Expecting Boolean)
-  * byes (Expecting Boolean)
-  * legByes (Expecting Boolean)
-  * wicketId (Integer)
-  * wagonX (Expecting Integer)
-  * wagonY (Expecting Integer)
-  * pitchX (Expecting Integer)
-  * pitchY (Expecting Integer)
-  * batPen (Expecting Integer)
-  * bwlPen (Expecting Integer)
-  * dateTime (Expecting Date/Time)
+  * id *(Integer)*
+  * overId *(Integer)*
+  * batsmanId *(Expecting Integer)*
+  * runs *(Expecting Integer)*
+  * wideBall *(Expecting Boolean)*
+  * noBall *(Expecting Boolean)*
+  * byes *(Expecting Boolean)*
+  * legByes *(Expecting Boolean)*
+  * wicketId *(Integer)*
+  * wagonX *(Expecting Integer)*
+  * wagonY *(Expecting Integer)*
+  * pitchX *(Expecting Integer)*
+  * pitchY *(Expecting Integer)*
+  * batPen *(Expecting Integer)*
+  * bwlPen *(Expecting Integer)*
+  * dateTime *(Expecting Date/Time)*
 * Wicket
-  * id (Integer)
-  * ballId (Integer)
-  * batsmanId (Expecting Integer)
-  * bowlerId (Expect Integer)
-  * fielderId (Expecting Integer)
-  * howOut (Expecting "bowled", "lbw", "handled the ball", "hit wicket", "hit the ball twice", "caught", "stumped", "runout", "obstruction", "timed out")
+  * id *(Integer)*
+  * ballId *(Integer)*
+  * batsmanId *(Expecting Integer)*
+  * bowlerId *(Expect Integer)*
+  * fielderId *(Expecting Integer)*
+  * howOut *(Expecting "bowled", "lbw", "handled the ball", "hit wicket", "hit the ball twice", "caught", "stumped", "runout", "obstruction", "timed out")*

@@ -24,7 +24,7 @@ var scorebook = function (data) {
     return (Object.prototype.toString.call(d) === "[object Date]") ? (isNaN(d.getTime()) ? null : value) : null;
   }
 
-  // Data manipulation.
+  // Push/Add/Create functions.
   function pushInning(battingTeam) {
     d.innings.push({
       "id" : d.innings.length,
@@ -114,6 +114,7 @@ var scorebook = function (data) {
     return valid !== false;
   }
 
+  // Pops/Undoes the last event.
   function pop() {
     // Determine which list should be popped.
     var list = d.innings.length !== (d.overs[d.overs.length - 1].inningId + 1) ? d.innings :
@@ -130,12 +131,14 @@ var scorebook = function (data) {
     return true;
   }
 
+  // Assists pull/get functions with object comparisons.
   function compareValues(thisObject, thatObject, objKeys) {
     var match = true,
       objKeys = objKeys || Object.keys(thatObject),
       i;
 
-    for (i = 0; i < objKeys.length; i += 1) {
+    // For each key in thatObject check if the associated value is the same in both thisObject and thatObject.
+    for (i = 0; (i < objKeys.length) && (match === true); i += 1) {
       if (thisObject[objKeys[i]] !== thatObject[objKeys[i]]) {
         match = false;
       }
@@ -144,17 +147,23 @@ var scorebook = function (data) {
     return match;
   }
 
+  // Pull/Get functions.
   function pullInnings(inning) {
     var returnInnings = [];
 
+    // If the inning id is known, return the only inning with that id.
     if (inning ? inning.id : false) {
-      returnInnings.push(d.innings[inning.id]);
+      // If the inning has a batting team and the team is correct then return the inning.
+      if (!inning.battingTeam || (inning.battingTeam == d.innings[inning.id].battingTeam)) {
+        returnInnings.push(d.innings[inning.id]);
+      }
     }
     else {
       var nInnings = d.innings.length,
         objKeys = inning ? Object.keys(inning) : [],
         i;
 
+      // Compare every inning with the given inning and return the inning if they match.
       for (i = 0; i < nInnings; i += 1) {
         if (compareValues(d.innings[i], inning, objKeys)) {
           returnInnings.push(d.innings[i]);
@@ -168,7 +177,9 @@ var scorebook = function (data) {
   function pullOvers(inning, over) {
     var returnOvers = [];
 
+    // If the over id is known, return the only over with that id.
     if (over ? over.id : false) {
+      // If the inning of the over matches that given, return the over.
       if (compareValues(d.innings[d.overs[over.id].inningId], inning, null)) {
         returnOvers.push(d.overs[over.id]);
       }
@@ -178,6 +189,7 @@ var scorebook = function (data) {
         objKeys = over ? Object.keys(over) : [],
         i;
 
+      // Compare every over with the given over and return the over if they match.
       for (i = 0; i < nOvers; i += 1) {
         if (compareValues(d.overs[i], over, objKeys)) {
           returnOvers.push(d.overs[i]);
@@ -192,7 +204,9 @@ var scorebook = function (data) {
     var returnBalls = [],
       matchedOvers = pullOvers(inning, over);
 
+    // If the ball id is known, return the only ball with that id.
     if (ball ? ball.id : false) {
+      // If the over of the ball matches that given, return the ball.
       if (matchedOvers[0].id === d.balls[ball.id].overId) {
         returnBalls.push(d.balls[ball.id]);
       }
@@ -204,8 +218,10 @@ var scorebook = function (data) {
         i,
         o;
 
+      // Compare every ball with the given ball and return the ball if they match.
       for (i = 0; i < nBalls; i += 1) {
         if (compareValues(d.balls[i], ball, objKeys)) {
+          // If the over id of the ball matches one of the ids of matches overs then return the ball.
           for (o = 0; o < nOvers; o += 1) {
             if (matchedOvers[o].id === d.balls[i].overId) {
               returnBalls.push(d.balls[i]);
@@ -223,7 +239,9 @@ var scorebook = function (data) {
     var returnWickets = [],
       matchedBalls = pullBalls(inning, over, ball);
 
+    // If the wicket id is known, return the only wicket with that id.
     if (wicket ? wicket.id : false) {
+      // If the ball of the wicket matches that given, return the wicket.
       if (matchedBalls[0].id === d.wickets[wicket.id].ballId) {
         returnWickets.push(d.wickets[wicket.id]);
       }
@@ -235,8 +253,10 @@ var scorebook = function (data) {
         i,
         o;
 
+      // Compare every wicket with the given wicket and return the wicket if they match.
       for (i = 0; i < nWickets; i += 1) {
         if (compareValues(d.wickets[i], wicket, objKeys)) {
+          // If the ball id of the wicket matches one of the ids of matches balls then return the wicket.
           for (o = 0; o < nBalls; o += 1) {
             if (matchedBalls[o].id === d.wickets[i].ballId){
               returnWickets.push(d.wickets[i]);
@@ -250,7 +270,7 @@ var scorebook = function (data) {
     return returnWickets;
   }
 
-  // Public functions and variables.
+  // Public functions and variables (scorebook interface).
   return {
     "addInnings": pushInning,
     "addOver": pushOver,

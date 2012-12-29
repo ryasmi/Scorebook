@@ -10,7 +10,7 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
 
 
 ## Library
-### How To Use It (Temporarily)
+### How To Use It (Temporary Solution)
 1. Download:
  * Library/intro.js
  * Library/core.js

@@ -78,4 +78,4 @@ Strings should always use double-quotes instead of single-quotes.
 ## Naming
 This is a general convention in JavaScript and other languages.
 * All variable identifiers should use `camelCaps` and they should be nouns.
-* All function idenfifiers should also use `camelCaps` and take the form `verbNoun` or similar.
+* All function identifiers should also use `camelCaps` and take the form `verbNoun` or similar.

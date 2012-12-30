@@ -1,4 +1,5 @@
 module.exports = function(grunt) {
+  var infoFile = "lib/info.json";
 
   grunt.initConfig({
     min: {
@@ -21,14 +22,10 @@ module.exports = function(grunt) {
 
   // Incrementing the version.
   grunt.registerTask("incrementVersion", function () {
-    incrementVersion();
+    incrementVersion(grunt.file.readJSON("lib/info.json"));
   });
 
-  function incrementVersion() {
-    // Get the info file.
-    var infoFile = "lib/info.json",
-      info = grunt.file.readJSON(infoFile);
-
+  function incrementVersion(info) {
     // Increment version.
     info.version.build = info.version.build > 49 ? 0 : info.version.build + 1;
     info.version.minor = info.version.build === 0 ? (info.version.minor > 8 ? 0 : info.version.minor + 1) : info.version.minor;
@@ -46,8 +43,9 @@ module.exports = function(grunt) {
   // Adds date and version.
   grunt.registerTask("date-version", function () {
     // src: github/jQuery/jQuery/Gruntfile.js @jQuery.
-    compiled = grunt.file.read("lib/intro.js");
-    compiled = compiled.replace(/@VERSION/g, incrementVersion()).replace("@DATE", function () {
+    var info = grunt.file.readJSON("lib/info.json"),
+      compiled = grunt.file.read("lib/intro.js");
+    compiled = compiled.replace(/@VERSION/g, incrementVersion(info)).replace(/@AUTHOR/g, info.author).replace("@DATE", function () {
       var date = new Date();
 
       // YYYY.MM.DD

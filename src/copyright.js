@@ -1,5 +1,5 @@
 /*!
- * Scorebook Library v0.1.7.
+ * Scorebook Library v0.1.8.
  *
  * Copyright (C) 2012 Ryan Smith.
  * All rights reserved.

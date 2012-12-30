@@ -66,17 +66,6 @@ local.properties
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
 
-# Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opensdf
-*.sdf
-
-# Visual Studio profiler
-*.psess
-*.vsp
-
 # ReSharper is a .NET coding add-in
 _ReSharper*
 
@@ -125,26 +114,6 @@ Thumbs.db
 
 # Folder config file
 Desktop.ini
-
-
-#############
-## Python
-#############
-
-*.py[co]
-
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
-.installed.cfg
 
 # Installer logs
 pip-log.txt

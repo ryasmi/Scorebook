@@ -29,7 +29,7 @@ Run `npm install -g grunt`.
 
 ## 2 Library
 ### 2.1 How To Use It
-1. Download [src/release.min.js](https://github.com/ryansmith94/Scorebook/blob/master/src/release.min.js).
+1. Download [release.min.js](https://github.com/ryansmith94/Scorebook/blob/master/src/release.min.js).
 2. Make a link to the downloaded file in your project.
 3. To create a new match use `foobar = new Scorebook()`.
 

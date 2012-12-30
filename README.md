@@ -24,7 +24,7 @@ Go to [Node JS Website](http://www.nodejs.org/)
 #### 1.3 Installing Grunt.
 Run `npm install -g grunt`.
 
-*Ensure that you have node installed first.
+*Ensure that you have node installed first.*
 
 
 ## 2 Library

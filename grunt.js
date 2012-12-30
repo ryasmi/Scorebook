@@ -1,22 +1,20 @@
-module.exports = function(grunt) {
-  // Project configuration.
+module.exports = function( grunt ) {
   grunt.initConfig({
-    // Lists of files to be minified with UglifyJS, used by the "min" task.
     min: {
       "release": {
-        src: ["library/intro.js", "library/core.js"],
-        dest: "release.min.js"
+        src: ["src/intro.js", "src/core.js"],
+        dest: "lib/release.min.js"
       },
       "test": {
-        src: ["library/core.js", "library/testing.js"],
-        dest: "test.min.js"
+        src: ["src/core.js", "src/testing.js"],
+        dest: "lib/test.min.js"
       }
-    },
-    // Global configuration options for UglifyJS.
-    uglify: {
-      mangle: {toplevel: true},
-      squeeze: {dead_code: false},
-      codegen: {quote_keys: true}
     }
   });
+
+  // Default grunt
+  grunt.registerTask("default", ["min:release"]);
+
+  // Short list as a high frequency watch task
+  grunt.registerTask("dev", ["min:test"]);
 };

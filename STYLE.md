@@ -6,7 +6,7 @@ Please note that the styling below is heavily based on the [JQuery Core Style Gu
 ## JSLint
 All files that are used in the public build are checked using [JSLint](http://www.jslint.com/ "JSLint website").
 
-The following are to be ignored when using Library/core.js:
+The following are to be ignored when using lib/core.js:
 * `Combine this with the previous 'var' statement`.
 
   This is being ignored because in some cases it is more efficient to declare variables in different parts of a function. This particularly important when an expression within an assignment could take a reasonable amount of time to be executed.

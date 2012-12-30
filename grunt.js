@@ -1,4 +1,4 @@
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
   grunt.initConfig({
     min: {
       "release": {
@@ -31,7 +31,7 @@ module.exports = function( grunt ) {
         date.getFullYear(),
         date.getMonth() + 1,
         date.getDate()
-      ].join("-");
+      ].join(".");
     });
 
     // Write concatenated source to file

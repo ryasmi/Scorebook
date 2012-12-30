@@ -20,6 +20,7 @@ module.exports = function( grunt ) {
 
   // Adds date and version.
   grunt.registerTask("date-version", function () {
+    // src: github/jQuery/jQuery/Gruntfile.js @jQuery.
     info = grunt.file.readJSON("lib/info.json");
     compiled = grunt.file.read("lib/intro.js");
     compiled = compiled.replace(/@VERSION/g, info.version).replace("@DATE", function () {
@@ -36,7 +37,7 @@ module.exports = function( grunt ) {
     // Write concatenated source to file
     grunt.file.write("src/copyright.js", compiled);
   });
-  
+
   // Default grunt
   grunt.registerTask("default", ["min:release", "date-version", "concat:release"]);
 

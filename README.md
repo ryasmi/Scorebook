@@ -11,7 +11,7 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
 
 ## Library
 ### How To Use It
-1. Download `build/release.min.js`.
+1. Download `src/release.min.js`.
 2. Make a link to the downloaded file in your project.
 3. To create a new match use `foobar = new Scorebook()`.
 

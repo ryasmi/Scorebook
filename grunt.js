@@ -2,12 +2,12 @@ module.exports = function( grunt ) {
   grunt.initConfig({
     min: {
       "release": {
-        src: ["src/intro.js", "src/core.js"],
-        dest: "lib/release.min.js"
+        src: ["lib/intro.js", "lib/core.js"],
+        dest: "src/release.min.js"
       },
       "test": {
-        src: ["src/core.js", "src/testing.js"],
-        dest: "lib/test.min.js"
+        src: ["lib/core.js", "lib/testing.js"],
+        dest: "src/test.min.js"
       }
     }
   });

@@ -19,7 +19,7 @@ When testing you should use `lib/testing.js` to make automated tests so that eve
 *Ensure that you have both node and grunt installed.*
 
 #### 1.2 Installing Node.
-Go to [Node JS Website](http://www.nodejs.org/)
+Go to [Node JS Website](http://www.nodejs.org/).
 
 #### 1.3 Installing Grunt.
 Run `npm install -g grunt`.

@@ -10,7 +10,8 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
 6. Make a [pull request](https://github.com/ryansmith94/Scorebook/pull/new/master "scorebook/pull-request").
 
 ### 1.1 Testing
-When testing you should use `lib/testing.js` to make automated tests so that every test can be ran after each build.
+When testing you should use [testing.js](https://github.com/ryansmith94/Scorebook/blob/master/src/testing.js) to make automated tests so that every test can be ran after each build.
+
 1. Create a new function to contain your tests or add it to an existing function (except doTest). Ensure that the function is being called at the bottom of the file.
 2. To add a test case use `doTest(*actualOutput, expectedOutput, errorMessage*);`.
 3. Run `grunt dev` to create the test file or `grunt` to create the release file.

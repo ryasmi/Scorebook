@@ -1,20 +1,20 @@
 function pushTests(book) {
-  book.addInnings(1);
-  book.addOver(1);
-  book.addBall(12, 1, false, false, false, false, false, 10, 11, 5, 4, 0, 0, null);
-  book.addWicket(12, "caught", 2);
+  doTest(book.addInnings(1), true, "Push Inning error #1");
+  doTest(book.addOver(1), true, "Push Over error #1");
+  doTest(book.addBall(12, 1, false, false, false, false, false, 10, 11, 5, 4, 0, 0, null), true, "Push ball error #1");
+  doTest(book.addWicket(12, "caught", 2), true, "Push Wicket error #2");
   doTest(book.addWicket(12, "caught", 2), false, "Push Wicket error #1");
-  book.addBall(14, 0, false, false, false, false, true, 0, 0, 0, 0, 0, 0, null);
-  book.addBall(14, 0, true, false, false, false, false, 0, 0, 0, 0, 0, 0, null);
-  book.addBall(14, 0, false, true, false, false, false, 0, 0, 0, 0, 0, 0, null);
-  book.addBall(14, 0, false, false, true, false, false, 0, 0, 0, 0, 0, 0, null);
-  book.addBall(14, 0, false, false, false, true, false, 0, 0, 0, 0, 0, 0, null);
-  book.addBall(14, 4, false, false, false, false, false, 0, 0, 0, 0, 0, 0, null);
-  book.undo();
-  doTest(book.data.innings.length, 1, "Push Inning error #1");
-  doTest(book.data.overs.length, 1, "Push Over error #1");
-  doTest(book.data.balls.length, 6, "Push Ball error #1");
-  doTest(book.data.wickets.length, 1, "Push Wicket error #2");
+  doTest(book.addBall(14, 0, false, false, false, false, true, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #2");
+  doTest(book.addBall(14, 0, true, false, false, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #3");
+  doTest(book.addBall(14, 0, false, true, false, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #4");
+  doTest(book.addBall(14, 0, false, false, true, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #5");
+  doTest(book.addBall(14, 0, false, false, false, true, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #6");
+  doTest(book.addBall(14, 4, false, false, false, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #7");
+  doTest(book.undo(), true, "Undo error #1");
+  doTest(book.data.innings.length, 1, "Push Inning error #2");
+  doTest(book.data.overs.length, 1, "Push Over error #2");
+  doTest(book.data.balls.length, 6, "Push Ball error #8");
+  doTest(book.data.wickets.length, 1, "Push Wicket error #3");
   return book.data;
 }
 

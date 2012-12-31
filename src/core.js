@@ -21,7 +21,7 @@ var scorebook = function (data) {
 
   function testDate(value) {
     // src: stackoverflow/questions/1353684/detecting-an-invalid-date-date-instance-in-javascript @Borgar.
-    return (Object.prototype.toString.call(d) === "[object Date]") ? (isNaN(d.getTime()) ? null : value) : null;
+    return (Object.prototype.toString.call(value) === "[object Date]") ? (isNaN(value.getTime()) ? null : value) : null;
   }
 
   // Push/Add/Create functions.

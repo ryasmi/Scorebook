@@ -1,58 +1,140 @@
 function pushTests(book) {
-  doTest(book.addInnings(1), true, "Push Inning error #1");
-  doTest(book.addOver(1), true, "Push Over error #1");
-  doTest(book.addBall(12, 1, false, false, false, false, false, 10, 11, 5, 4, 0, 0, null), true, "Push ball error #1");
-  doTest(book.addWicket(12, "caught", 2), true, "Push Wicket error #2");
-  doTest(book.addWicket(12, "caught", 2), false, "Push Wicket error #1");
-  doTest(book.addBall(14, 0, false, false, false, false, true, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #2");
-  doTest(book.addBall(14, 0, true, false, false, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #3");
-  doTest(book.addBall(14, 0, false, true, false, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #4");
-  doTest(book.addBall(14, 0, false, false, true, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #5");
-  doTest(book.addBall(14, 0, false, false, false, true, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #6");
-  doTest(book.addBall(14, 4, false, false, false, false, false, 0, 0, 0, 0, 0, 0, null), true, "Push ball error #7");
-  doTest(book.undo(), true, "Undo error #1");
-  doTest(book.data.innings.length, 1, "Push Inning error #2");
-  doTest(book.data.overs.length, 1, "Push Over error #2");
-  doTest(book.data.balls.length, 6, "Push Ball error #8");
-  doTest(book.data.wickets.length, 1, "Push Wicket error #3");
+  doTest(book.addInnings(1), true, "Push Inning error #a1");
+  doTest(book.addOver(1), true, "Push Over error #a1");
+  doTest(book.addBall(12, 1, false, false, false, false, false, 10, 11, 5, 4, 0, 0, null), true, "Push ball error #a1");
+  doTest(book.addWicket(12, "caught", 2), true, "Push Wicket error #a1");
+  doTest(book.addWicket(12, "caught", 2), false, "Push Wicket error #a2");
+  pushBall(book);
+  doTest(book.undo(), true, "Undo error #a1");
   return book.data;
 }
 
+function pushBall(book) {
+  var args = [
+    [12, 14, "str", null, []],
+    [null, {}, "0", 0],
+    [null, true, false, 0, "doig"],
+    [null, true, false, 0, "doig"],
+    [null, true, false, 0, "doig"],
+    [null, true, false, 0, "doig"],
+    [null, true, false, 0, "doig"],
+    [0, null],
+    [0, null],
+    [0, null],
+    [0, null],
+    [0, null],
+    [0, null],
+    [null, new Date()]
+  ];
+
+  repeatTest("pushBall", book.addBall, args, true);
+}
+
 function pullTests(book) {
-  // Get Innings.
-  doTest(book.getInnings()[0].id, 0, "pullInnings error #1");
-  doTest(book.getInnings({"id" : 0})[0].id, 0, "pullInnings error #2");
-  doTest(book.getInnings({"battingTeam" : 1})[0].id, 0, "pullInnings error #3");
+  pullInninngs(book);
+  pullOvers(book);
+  pullBalls(book);
+  pullWickets(book);
+}
 
-  // Get Overs.
-  doTest(book.getOvers()[0].id, 0, "pullOvers error #1");
-  doTest(book.getOvers({"id" : 0})[0].id, 0, "pullOvers error #2");
-  doTest(book.getOvers({"battingTeam" : 1})[0].id, 0, "pullOvers error #3");
-  doTest(book.getOvers(null, {"id" : 0})[0].id, 0, "pullOvers error #4");
-  doTest(book.getOvers({}, {"id" : 0})[0].id, 0, "pullOvers error #5");
-  doTest(book.getOvers({"id" : 0}, {"bowlerId": 1})[0].id, 0, "pullOvers error #6");
+function pullInninngs(book) {
+  var args = [
+      [null, {}, {"id" : 0}, {"battingTeam" : 1}]
+    ];
 
-  // Get Balls.
-  doTest(book.getBalls()[0].id, 0, "pullBalls error #1");
+  repeatTest("pullInninngs", book.getOvers, args, null);
+}
 
-  // Get Wickets.
-  doTest(book.getWickets()[0].id, 0, "pullWickets error #1");
+function pullOvers(book) {
+  var args = [
+      [null, {}, {"id" : 0}, {"battingTeam" : 1}],
+      [null, {}, {"id" : 0}, {"bowlerId" : 0}]
+    ];
+
+  repeatTest("pullOvers", book.getOvers, args, null);
+}
+
+function pullBalls(book) {
+  var args = [
+      [null, {}, {"id" : 0}, {"battingTeam" : 1}],
+      [null, {}, {"id" : 0}, {"bowlerId" : 0}],
+      [null, {}, {"overId" : 0, "id" : 0, "batsmanId" : 12}]
+    ];
+
+  repeatTest("pullBalls", book.getBalls, args, null);
+}
+
+function pullWickets(book) {
+  var args = [
+      [null, {}, {"id" : 0}, {"battingTeam" : 1}],
+      [null, {}, {"id" : 0}, {"bowlerId" : 0}],
+      [null, {}, {"overId" : 0, "id" : 0, "batsmanId" : 12}],
+      [null, {}, {"fielderId" : 2, "howout" : "caught"}]
+    ];
+
+  repeatTest("pullWickets", book.getWickets, args, null);
+}
+
+
+function repeatTest(testName, fn, argValues, expectedOutput) {
+  var i, result, arg,
+    repeats = 0,
+    args = [],
+    argId = [];
+
+  // Get the number of required tests.
+  for (i = 0; i < argValues.length; i += 1) {
+    repeats += argValues[i].length;
+    argId.push(0);
+  }
+
+  // Repeat tests.
+  for (i = 0; i < repeats; i += 1) {
+    for (arg = 0; arg < argValues.length; arg += 1) {
+      // If the argument id is too high reset it to zero and increment the next argument's id.
+      if (argId[arg] >= arg.length - 1) {
+        argId[arg] = 0;
+        argId[arg + 1] += 1;
+      }
+
+      // Assign the argument value.
+      args[arg] = argValues[arg][argId[arg]];
+    }
+
+    // Do the test.
+    doTest(fn.apply(console, Array.prototype.slice.call(args)), expectedOutput, testName + " error #" + i);
+  }
 }
 
 function doTest(actualOutput, expectedOutput, message) {
-  tests += 1;
-  if (actualOutput !== expectedOutput) {
-    errors += 1;
-    console.log(message);
-    return false;
+  tests.total += 1;
+  try {
+    if ((actualOutput !== expectedOutput) && (expectedOutput !== null)) {
+      tests.errors += 1;
+      console.log("Test #" + tests.total + " failed: " + message);
+    }
   }
-  return true;
+  catch (ex) {
+    tests.errors += 1;
+    console.log("Test #" + tests.total + " failed: " + message);
+    console.log("(" + ex + "}");
+  }
+  return tests;
+}
+
+function dataOutput(book) {
+  var i,
+    attr = ["innings", "overs", "balls", "wickets"];
+
+  for (i = 0; i < attr.length; i += 1) {
+    console.log(attr[i] + ": " + book.data[attr[i]].length);
+  }
 }
 
 console.log("Starting tests.");
-tests = 0;
-errors = 0;
+tests = {"total" : 0, "errors" : 0};
 book = new scorebook();
 pushTests(book);
 pullTests(book);
-console.log("Completed " + tests + " tests with " + errors + " errors.");
+dataOutput(book);
+console.log("Completed " + tests.total + " tests with " + tests.errors + " errors.");

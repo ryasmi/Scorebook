@@ -4,7 +4,8 @@ module.exports = function(grunt) {
     "source" : "src",
     "build" : "build"
   },
-    infoFile = dir.source + "/info.json";
+    infoFile = dir.source + "/info.json",
+    releaseFile = "/scorebook.min.js";
 
 
   // Grunt config.
@@ -12,7 +13,7 @@ module.exports = function(grunt) {
     min: {
       "release": {
         src: [dir.source + "/core.js"],
-        dest: dir.build + "/release.min.js"
+        dest: dir.build + releaseFile
       },
       "test": {
         src: [dir.source + "/core.js", dir.source + "/testing.js"],
@@ -21,8 +22,8 @@ module.exports = function(grunt) {
     },
     concat: {
       "release": {
-        src: [dir.build + "/copyright.js", dir.build + "/release.min.js"],
-        dest: dir.build + "/release.min.js"
+        src: [dir.build + "/copyright.js", dir.build + releaseFile],
+        dest: dir.build + releaseFile
       }
     }
   });

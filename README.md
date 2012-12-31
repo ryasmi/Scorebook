@@ -17,7 +17,7 @@ When testing you should use [testing.js](https://github.com/ryansmith94/Scoreboo
 1. Create a new function to contain your tests or add it to an existing function (except doTest). Ensure that the function is being called at the bottom of the file.
 2. To add a test case use `doTest(*actualOutput, expectedOutput, errorMessage*);`.
 3. Run `grunt dev` to create the test file or `grunt` to create the release file.
-4. Run `node build\test.min.js` to test the file or use `build/release.min.js` to use the release file (see step 3).
+4. Run `node build\test.min.js` to test the file or use `build/scorebook.min.js` to use the release file (see step 3).
 
 *Ensure that you have both node and grunt installed.*
 
@@ -32,7 +32,7 @@ Run `npm install -g grunt`.
 
 ## 2 Library
 ### 2.1 How To Use It
-1. Download [release.min.js](https://github.com/ryansmith94/Scorebook/blob/master/build/release.min.js).
+1. Download [scorebook.min.js](https://github.com/ryansmith94/Scorebook/blob/master/build/scorebook.min.js).
 2. Make a link to the downloaded file in your project.
 3. To create a new match use `foobar = new Scorebook()`.
 

@@ -60,7 +60,7 @@ module.exports = function(grunt) {
     compiled = grunt.file.read(dir.source + "/intro.js")
       .replace(/@VERSION/g, incrementVersion(info))
       .replace(/@AUTHOR/g, info.author)
-      .replace("@DATE", [date.getFullYear(), date.getMonth() + 1, date.getDate()].join("."));
+      .replace(/@DATE/g, [date.getFullYear(), date.getMonth() + 1, date.getDate()].join("."));
 
     // Write concatenated source to file.
     grunt.file.write(dir.build + "/copyright.js", compiled);

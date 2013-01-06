@@ -58,9 +58,12 @@ module.exports = function(grunt) {
 
     // Replace placeholders.
     compiled = grunt.file.read(dir.source + "/intro.js")
+      .replace(/@TITLE/g, info.title)
       .replace(/@VERSION/g, incrementVersion(info))
       .replace(/@AUTHOR/g, info.author)
       .replace(/@YEAR/g, date.getFullYear())
+      .replace(/@LICENCE/g, info.licence.message)
+      .replace(/@LINK/g, info.licence.url)
       .replace(/@DATE/g, [date.getFullYear(), date.getMonth() + 1, date.getDate()].join("."));
 
     // Write concatenated source to file.

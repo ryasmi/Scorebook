@@ -21,10 +21,10 @@ When testing you should use [testing.js](https://github.com/ryansmith94/Scoreboo
 
 *Ensure that you have both node and grunt installed.*
 
-#### 1.2 Installing Node.
+### 1.2 Installing Node.
 Go to [Node JS Website](http://www.nodejs.org/).
 
-#### 1.3 Installing Grunt.
+### 1.3 Installing Grunt.
 Run `npm install -g grunt`.
 
 *Ensure that you have node installed first.*

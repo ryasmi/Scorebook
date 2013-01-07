@@ -110,8 +110,8 @@ function doTest(actualOutput, expectedOutput, message) {
   tests.total += 1;
   try {
     if ((actualOutput !== expectedOutput) && (expectedOutput !== null)) {
-      tests.errors += 1;
       console.log("Test #" + tests.total + " failed: " + message);
+      tests.errors += 1;
     }
   }
   catch (ex) {

@@ -15,7 +15,7 @@ A JavaScript library for cricket scoring created for use in cricket scoring appl
 When testing you should use [testing.js](https://github.com/ryansmith94/Scorebook/blob/master/src/testing.js) to make automated tests so that every test can be ran after each build.
 
 1. Run `grunt dev` to create the test file or `grunt` to create the release file.
-2. Run `node build\testing.min.js` to test the file or use `build/Scorebook.min.js` to use the release file (see step 3).
+2. Run `node build\test.min.js` to test the file or use `build/Scorebook.min.js` to use the release file (see step 3).
 
 *Ensure that you have both node and grunt installed.*
 
@@ -30,7 +30,7 @@ Run `npm install -g grunt`.
 
 ## 2 Library
 ### 2.1 How To Use It
-1. Download/copy [Scorebook.min.js](https://github.com/ryansmith94/Scorebook/blob/master/build/Scorebook.min.js) from the master branch or from the latest tag [v0.2.15](https://github.com/ryansmith94/Scorebook/tree/v0.2.15/build/Scorebook.min.js).
+1. Download/copy [Scorebook.min.js](https://github.com/ryansmith94/Scorebook/blob/master/build/Scorebook.min.js) from the master branch or from the latest tag [v0.2.18](https://github.com/ryansmith94/Scorebook/tree/v0.2.18/build/Scorebook.min.js).
 2. Make a link to the downloaded file in your project.
 3. To create a new match use `foobar = new Scorebook()`.
 

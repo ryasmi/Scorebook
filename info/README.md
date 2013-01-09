@@ -1,5 +1,5 @@
 # [@TITLE](https://www.github.com/ryansmith94/@TITLE)
-@DESCRIPTION
+A JavaScript library for cricket scoring created for use in cricket scoring applications and cricket games that require scoring. The library is incredibly flexible allowing for different rules sets, match lengths and includes options for recording the pitch of the ball while bowling and where the ball goes whilst batting. This can provide useful statistics and allow the creation of wagon wheels and the like.
 
 [This work is licensed under a @LICENCE License.](@LICENCE-URL)
 

@@ -27,7 +27,6 @@ module.exports = function(grunt) {
     for (i = 0; i < files.length; i += 1) {
       compiled = grunt.file.read(startDirectory + files[i])
         .replace(/@TITLE/g, params.title)
-        .replace(/@DESCRIPTION/g, params.description)
         .replace(/@LICENCE-URL/g, params.licence.url)
         .replace(/@LICENCE/g, params.licence.type)
         .replace(/@VERSION/g, version)

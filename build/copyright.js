@@ -1,5 +1,5 @@
 /*!
- * Scorebook v0.2.15.
+ * Scorebook v0.2.18.
  *
  * Copyright (C) 2013 Ryan Smith.
  * This work is licenced under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported licence.

@@ -1,21 +1,21 @@
-# [Scorebook](https://www.github.com/ryansmith94/Scorebook)
-A JavaScript library for cricket scoring created for use in cricket scoring applications and cricket games that require scoring. The library is incredibly flexible allowing for different rules sets, match lengths and includes options for recording the pitch of the ball while bowling and where the ball goes whilst batting. This can provide useful statistics and allow the creation of wagon wheels and the like.
+# [@TITLE](https://www.github.com/ryansmith94/@TITLE)
+@DESCRIPTION
 
-[This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+[This work is licensed under a @LICENCE License.](@LICENCE-URL)
 
 ## 1 Contributing
-1. Go to [issues](https://github.com/ryansmith94/Scorebook/issues?state=open "/issues") and see if there is anything that needs doing.
+1. Go to [issues](https://github.com/ryansmith94/@TITLE/issues?state=open "/issues") and see if there is anything that needs doing.
 2. Familiarise yourself with the files you will be working with.
-3. Read the [code styling guidlines](https://github.com/ryansmith94/Scorebook/blob/master/STYLE.md "STYLE.md").
-4. [Fork](https://github.com/ryansmith94/Scorebook/fork "/fork") the project so that you have your own copy of the repository.
+3. Read the [code styling guidlines](https://github.com/ryansmith94/@TITLE/blob/master/STYLE.md "STYLE.md").
+4. [Fork](https://github.com/ryansmith94/@TITLE/fork "/fork") the project so that you have your own copy of the repository.
 5. Make the updates you'd like to make on your copy of the repository.
-6. Make a [pull request](https://github.com/ryansmith94/Scorebook/pull/new/master "/pull-request").
+6. Make a [pull request](https://github.com/ryansmith94/@TITLE/pull/new/master "/pull-request").
 
 ### 1.1 Testing
-When testing you should use [testing.js](https://github.com/ryansmith94/Scorebook/blob/master/src/testing.js) to make automated tests so that every test can be ran after each build.
+When testing you should use [testing.js](https://github.com/ryansmith94/@TITLE/blob/master/src/testing.js) to make automated tests so that every test can be ran after each build.
 
 1. Run `grunt dev` to create the test file or `grunt` to create the release file.
-2. Run `node build\testing.min.js` to test the file or use `build/Scorebook.min.js` to use the release file (see step 3).
+2. Run `node build\test.min.js` to test the file or use `build/@TITLE.min.js` to use the release file (see step 3).
 
 *Ensure that you have both node and grunt installed.*
 
@@ -30,7 +30,7 @@ Run `npm install -g grunt`.
 
 ## 2 Library
 ### 2.1 How To Use It
-1. Download/copy [Scorebook.min.js](https://github.com/ryansmith94/Scorebook/blob/master/build/Scorebook.min.js) from the master branch or from the latest tag [v0.2.15](https://github.com/ryansmith94/Scorebook/tree/v0.2.15/build/Scorebook.min.js).
+1. Download/copy [@TITLE.min.js](https://github.com/ryansmith94/@TITLE/blob/master/build/@TITLE.min.js) from the master branch or from the latest tag [v@VERSION](https://github.com/ryansmith94/@TITLE/tree/v@VERSION/build/@TITLE.min.js).
 2. Make a link to the downloaded file in your project.
 3. To create a new match use `foobar = new Scorebook()`.
 

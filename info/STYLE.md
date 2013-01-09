@@ -1,5 +1,5 @@
 # Code Style
-The styling below should be used at all times when contributing JavaScript code to the Scorebook.
+The styling below should be used at all times when contributing JavaScript code to the @TITLE.
 
 Please note that the styling below is heavily based on the [JQuery Core Style Guidlines](http://docs.jquery.com/JQuery_Core_Style_Guidelines "JQuery/StyleGuidelines").
 

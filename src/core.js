@@ -134,9 +134,9 @@ var scorebook = function (data) {
 
   // Assists pull/get functions with object comparisons.
   function compareValues(thisObject, thatObject, objKeys) {
-    var match = true,
-      objKeys = objKeys || Object.keys(thatObject),
-      i;
+    var i,
+      match = true,
+      objKeys = objKeys || Object.keys(thatObject);
 
     // For each key in thatObject check if the associated value is the same in both thisObject and thatObject.
     for (i = 0; (i < objKeys.length) && (match === true); i += 1) {
@@ -150,7 +150,8 @@ var scorebook = function (data) {
 
   // Pull/Get functions.
   function pullInnings(inning) {
-    var returnInnings = [];
+    var nInnings, i, objKeys,
+      returnInnings = [];
 
     // If the inning id is known, return the only inning with that id.
     if (inning ? inning.id : false) {
@@ -160,9 +161,8 @@ var scorebook = function (data) {
       }
     }
     else {
-      var nInnings = d.innings.length,
-        objKeys = inning ? Object.keys(inning) : [],
-        i;
+      nInnings = d.innings.length,
+      objKeys = inning ? Object.keys(inning) : [],
 
       // Compare every inning with the given inning and return the inning if they match.
       for (i = 0; i < nInnings; i += 1) {
@@ -176,7 +176,8 @@ var scorebook = function (data) {
   }
 
   function pullOvers(inning, over) {
-    var returnOvers = [];
+    var nOvers, i, objKeys,
+      returnOvers = [];
 
     // If the over id is known, return the only over with that id.
     if (over ? over.id : false) {
@@ -186,9 +187,8 @@ var scorebook = function (data) {
       }
     }
     else {
-      var nOvers = d.overs.length,
-        objKeys = over ? Object.keys(over) : [],
-        i;
+      nOvers = d.overs.length;
+      objKeys = over ? Object.keys(over) : [];
 
       // Compare every over with the given over and return the over if they match.
       for (i = 0; i < nOvers; i += 1) {
@@ -202,7 +202,8 @@ var scorebook = function (data) {
   }
 
   function pullBalls(inning, over, ball) {
-    var returnBalls = [],
+    var nBalls, nOvers, objKeys, i, o,
+      returnBalls = [],
       matchedOvers = pullOvers(inning, over);
 
     // If the ball id is known, return the only ball with that id.
@@ -213,11 +214,9 @@ var scorebook = function (data) {
       }
     }
     else {
-      var nBalls = d.balls.length,
-        nOvers = matchedOvers.length,
-        objKeys = ball ? Object.keys(ball) : [],
-        i,
-        o;
+      nBalls = d.balls.length,
+      nOvers = matchedOvers.length,
+      objKeys = ball ? Object.keys(ball) : [],
 
       // Compare every ball with the given ball and return the ball if they match.
       for (i = 0; i < nBalls; i += 1) {
@@ -237,7 +236,8 @@ var scorebook = function (data) {
   }
 
   function pullWickets(inning, over, ball, wicket) {
-    var returnWickets = [],
+    var nWickets, nBalls, objKeys, i, o,
+      returnWickets = [],
       matchedBalls = pullBalls(inning, over, ball);
 
     // If the wicket id is known, return the only wicket with that id.
@@ -248,11 +248,9 @@ var scorebook = function (data) {
       }
     }
     else {
-      var nWickets = d.wickets.length,
-        nBalls = matchedBalls.length,
-        objKeys = wicket ? Object.keys(wicket) : [],
-        i,
-        o;
+      nWickets = d.wickets.length,
+      nBalls = matchedBalls.length,
+      objKeys = wicket ? Object.keys(wicket) : [];
 
       // Compare every wicket with the given wicket and return the wicket if they match.
       for (i = 0; i < nWickets; i += 1) {

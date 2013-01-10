@@ -7,10 +7,6 @@ Please note that the styling below is heavily based on the [JQuery Core Style Gu
 All files that are used in the public build are checked using [JSLint](http://www.jslint.com/ "JSLint website").
 
 The following are to be ignored:
-* `Combine this with the previous 'var' statement`.
-
-  This is being ignored because in some cases it is more efficient to declare variables in different parts of a function. This particularly important when an expression within an assignment could take a reasonable amount of time to be executed.
-
 * `'foobar' is already defined` and `unexpected 'foobar'`.
 
   This is to be ignored when it is used for a conditional assignment which is ensuring a value is not null/undefined.

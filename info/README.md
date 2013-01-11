@@ -32,18 +32,20 @@ Run `npm install -g grunt`.
 ### 2.1 How To Use It
 1. Download/copy [@TITLE.min.js](https://github.com/ryansmith94/@TITLE/blob/master/build/@TITLE.min.js) from the master branch or from the latest tag [v@VERSION](https://github.com/ryansmith94/@TITLE/tree/v@VERSION/build/@TITLE.min.js).
 2. Make a link to the downloaded file in your project.
-3. To create a new match use (polyfill can be found at [Douglas Crockford's blog](http://javascript.crockford.com/prototypal.html):   
-    // Polyfill for create method.
-    if (typeof Object.create !== 'function') {
-        Object.create = function (o) {
-            function F() {}
-            F.prototype = o;
-            return new F();
-        };
-    }
+3. To create a new match use (polyfill can be found at [Douglas Crockford's blog](http://javascript.crockford.com/prototypal.html):
 
-    // Create new instance.
-    foobar = Object.create(scorebook());
+        // Polyfill for create method.
+        if (typeof Object.create !== 'function') {
+            Object.create = function (o) {
+                function F() {}
+                F.prototype = o;
+                return new F();
+            };
+        }
+        
+        // Create new instance.
+        foobar = Object.create(scorebook());
+
 
 ### 2.2 Public Functions
 * addInnings

@@ -133,7 +133,7 @@ function dataOutput(book) {
 
 console.log("Starting tests.");
 tests = {"total" : 0, "errors" : 0};
-book = new scorebook();
+book = Object.create(Scorebook());
 pushTests(book);
 pullTests(book);
 dataOutput(book);

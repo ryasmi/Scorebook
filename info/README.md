@@ -44,7 +44,7 @@ Run `npm install -g grunt`.
         }
         
         // Create new instance.
-        foobar = Object.create(scorebook());
+        foobar = Object.create(Scorebook());
 
 
 ### 2.2 Public Functions

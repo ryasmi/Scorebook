@@ -46,8 +46,12 @@ Run `npm install -g grunt`.
         // Create new instance.
         foobar = Object.create(Scorebook());
 
+        // Using methods and properties.
+        foobar.addInnings("England");
+        // See below for further use.
 
-### 2.2 Public Functions
+
+### 2.2 Methods
 * addInnings
   * Arguments: battingTeam
   * Returns: true
@@ -78,7 +82,7 @@ Run `npm install -g grunt`.
   * Arguments: [inning *(of type Inning)*, over *(of type Over)*, ball *(of type Ball)*, wicket *(of type Wicket)*]
   * Returns: *Array (of type Wicket)*
 
-### 2.3 Public Variables
+### 2.3 Properties
 * data *(Object)*
   * innings *(Array of type Inning)*
   * overs *(Array of type Over)*

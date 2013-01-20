@@ -93,7 +93,8 @@ var Scorebook = function (data) {
         // Duck check.
         var valid = ((d.wickets.length > 0) && (d.balls.length > 0) ? d.wickets[d.wickets.length - 1].ballId !== d.balls.length : true) === false ? false : (/^(bowled|lbw|handled the ball|hit wicket|hit the ball twice)$/).test(howOut) ? "bowler" : (/^(caught|stumped)$/).test(howOut) ? "both" : (/^(runout)$/).test(howOut) ? "fielder" : (/^(obstruction|timed out)$/).test(howOut) ? "none" : false,
             bowlerId = ((valid === "bowler") || (valid === "both")) ? (d.overs[d.overs.length - 1].bowlerId || null) : null;
-            fielderId = ((valid === "fielder") || (valid === "both")) ? (fielderId || null) : null;
+
+        fielderId = ((valid === "fielder") || (valid === "both")) ? (fielderId || null) : null;
 
         // Create a new wicket if duck checks were successful.
         if (valid !== false) {
@@ -129,8 +130,9 @@ var Scorebook = function (data) {
     // Assists pull/get functions with object comparisons.
     function compareValues(thisObject, thatObject, objKeys) {
         var i,
-            match = true,
-            objKeys = objKeys || Object.keys(thatObject);
+            match = true;
+
+        objKeys = objKeys || Object.keys(thatObject);
 
         // For each key in thatObject check if the associated value is the same in both thisObject and thatObject.
         for (i = 0; (i < objKeys.length) && (match === true); i += 1) {

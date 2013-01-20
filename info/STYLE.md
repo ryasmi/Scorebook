@@ -70,3 +70,5 @@ Strings should always use double-quotes instead of single-quotes.
 This is a general convention in JavaScript and other languages.
 * All variable identifiers should use `camelCaps` and they should be nouns.
 * All function identifiers should also use `camelCaps` and take the form `verbNoun` or similar.
+* Any class identifiers should use capitalise the 'FirstLetter' of each word.
+* Any global varaibles should have capitalised letters and separate each word 'WITH_AN_UNDERSCORE'.

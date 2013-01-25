@@ -1,2 +1,2 @@
 # Authors
-[Ryan Smith](github.com/ryansmith94)
+[Ryan Smith](http://www.github.com/ryansmith94)   

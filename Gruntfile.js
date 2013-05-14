@@ -66,7 +66,7 @@ module.exports = function(grunt) {
     // Grunt config. Carries out minification and concatenation.
     grunt.initConfig({
       uglify: {
-        "all": {
+        all: {
           src: files,
           dest: buildFile
         }

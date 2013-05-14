@@ -83,6 +83,5 @@ module.exports = function(grunt) {
   // Grunt shortcuts.
   grunt.registerTask("default", ["release", "init-config", "min:all", "concat:release"]);
   grunt.registerTask("dev", ["testing", "init-config", "min:all"]);
-  grunt.registerTask("test", ["testing", "init-config", "min:all"]);
   grunt.registerTask("validate", []);
 };

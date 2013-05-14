@@ -6,7 +6,9 @@ node_js:
     - "0.6"
 script:
     - npm install -g grunt
+    - cd ryansmith94/Scorebook
     - grunt dev
+    - cd ryansmith94/Scorebook
     - grunt
 branches:
     except:

@@ -5,7 +5,9 @@ node_js:
     - "0.8"
     - "0.6"
 script:
+    - npm install -g grunt
     - grunt dev
+    - grunt
 branches:
     except:
         - gh-pages

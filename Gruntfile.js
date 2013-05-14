@@ -65,7 +65,7 @@ module.exports = function(grunt) {
   grunt.registerTask("init-config", function () {
     // Grunt config. Carries out minification and concatenation.
     grunt.initConfig({
-      min: {
+      uglify: {
         "all": {
           src: files,
           dest: buildFile
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
   });
 
   // Grunt shortcuts.
-  grunt.registerTask("default", ["release", "init-config", "min:all", "concat:release"]);
-  grunt.registerTask("dev", ["testing", "init-config", "min:all"]);
+  grunt.registerTask("default", ["release", "init-config", "uglify:all", "concat:release"]);
+  grunt.registerTask("dev", ["testing", "init-config", "uglify:all"]);
   grunt.registerTask("validate", []);
 };

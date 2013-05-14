@@ -4,7 +4,8 @@
     "version": "0.2.26",
     "author": "Ryan Smith <main.ryansmith@gmail.com>",
     "devDependencies": {
-        "grunt": "~0.4.1"
+        "grunt": "~0.4",
+        "grunt-cli": "~0.1"
     },
     "scripts": {
         

@@ -1,0 +1,17 @@
+{
+    "name": "Scorebook",
+    "description": "A JavaScript library for cricket scoring.",
+    "version": "0.2.26",
+    "author": "Ryan Smith <main.ryansmith@gmail.com>",
+    "engines": {
+        "node" : ">=0.4.0"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.1"
+    },
+    "scripts": {
+        
+        "postinstall": "grunt dev",
+        "test": "node build/testing.min.js"
+    }
+}

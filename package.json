@@ -1,15 +1,20 @@
 {
-    "name": "Scorebook",
-    "description": "A JavaScript library for cricket scoring.",
-    "version": "0.2.26",
-    "author": "Ryan Smith <main.ryansmith@gmail.com>",
-    "devDependencies": {
-        "grunt": "~0.4",
-        "grunt-cli": "~0.1"
-    },
-    "scripts": {
-        
-        "postinstall": "grunt dev",
-        "test": "node build/testing.min.js"
-    }
+  "name": "Scorebook",
+  "author": "Ryan Smith",
+  "url": "https://www.github.com/ryansmith94/Scorebook",
+  "licence": {
+    "name": "CC BY-NC-SA 3.0",
+    "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-cli": "~0.1.8"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
 }

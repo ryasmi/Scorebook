@@ -1,87 +1,62 @@
-module.exports = function(grunt) {
-  // Variables and Shortcuts.
-  var i, files, buildFile,
-    params = grunt.file.readJSON("params.json"),
-    buildDirectory = params.grunt.buildDirectory,
-    sourceDirectory = params.grunt.sourceDirectory,
-    version = incrementVersion();
+/* jshint node: true, -W061 */
+module.exports = function (grunt) {
+    "use strict";
+    var pkg = grunt.file.readJSON("package.json");
 
-  function incrementVersion() {
-    // Increment version numbers.
-    params.version.build = params.version.build > 49 ? 0 : params.version.build + 1;
-    params.version.minor = params.version.build === 0 ? (params.version.minor > 8 ? 0 : params.version.minor + 1) : params.version.minor;
-    params.version.major = params.version.minor === 0 ? params.version.major + 1 : params.version.major;
-
-    // Rewrite the params file to contain the updated version numbers.
-    grunt.file.write("params.json", JSON.stringify(params));
-
-    // major.minor.build
-    return [params.version.major, params.version.minor, params.version.build].join(".");
-  }
-
-  function replaceParams(files, startDirectory, endDirectory) {
-    var i, compiled,
-      date = new Date();
-
-    // For each file in files replace the params.
-    for (i = 0; i < files.length; i += 1) {
-      compiled = grunt.file.read(startDirectory + files[i])
-        .replace(/@TITLE/g, params.title)
-        .replace(/@LICENCE-URL/g, params.licence.url)
-        .replace(/@LICENCE/g, params.licence.type)
-        .replace(/@VERSION/g, version)
-        .replace(/@AUTHOR/g, params.author)
-        .replace(/@YEAR/g, date.getFullYear())
-        .replace(/@DATE/g, [date.getFullYear(), date.getMonth() + 1, date.getDate()].join("."));
-
-      // Write concatenated source to file.
-      grunt.file.write(endDirectory + files[i], compiled);
-    }
-  }
-
-  function prefixDirectory(directory, files) {
-    var i,
-      prefixed = [];
-
-    for (i = 0; i < files.length; i += 1) {
-      prefixed.push(directory + files[i]);
-    }
-
-    return prefixed;
-  }
-
-  grunt.registerTask("release", function () {
-    replaceParams(["copyright.js"], "info/", "build/");
-    replaceParams(params.grunt.infoFiles, "info/", "");
-    files = prefixDirectory(sourceDirectory, params.grunt.releaseFiles);
-    buildFile = params.grunt.buildDirectory + params.title + ".min.js";
-  });
-
-  grunt.registerTask("testing", function () {
-    files = prefixDirectory(sourceDirectory, params.grunt.devFiles);
-    buildFile = params.grunt.buildDirectory + "testing.min.js";
-  });
-
-  grunt.registerTask("init-config", function () {
-    // Grunt config. Carries out minification and concatenation.
+    // Project configuration.
     grunt.initConfig({
-      uglify: {
-        all: {
-          src: files,
-          dest: buildFile
+        pkg: pkg,
+        uglify: {
+            options: {
+                banner: grunt.file.read("src/banner.txt") + "\n"
+            },
+            build: {
+                src: "build/release.min.js",
+                dest: "build/release.min.js"
+            },
+            test: {
+                src: "build/release.test.js",
+                dest: "build/release.test.js"
+            }
+        },
+        concat: {
+            options: {
+                separator: ";"
+            },
+            dist: {
+                src: ["src/**/*.js"],
+                dest: "build/release.min.js"
+            },
+            test: {
+                src: ["test/**/*.js"],
+                dest: "build/release.test.js"
+            }
+        },
+        jshint: {
+            files: ["Gruntfile.js", "src/**/*.js", "test/**/*.js"],
+            options: {
+                jshintrc: ".jshintrc"
+            }
         }
-      },
-      concat: {
-        "release": {
-          src: [buildDirectory + "/copyright.js", buildFile],
-          dest: buildFile
-        }
-      }
     });
-  });
 
-  // Grunt shortcuts.
-  grunt.registerTask("default", ["release", "init-config", "uglify:all", "concat:release"]);
-  grunt.registerTask("dev", ["testing", "init-config", "uglify:all"]);
-  grunt.registerTask("validate", []);
+    // Custom task for running test files.
+    grunt.registerTask("test", function () {
+        // Create console.
+        this.console = {};
+        this.console.log = grunt.log.oklns;
+        this.console.warn = grunt.fail.warn;
+
+        // Run code with tests.
+        eval(grunt.file.read("build/release.min.js"));
+        eval(grunt.file.read("build/release.test.js"));
+    });
+
+    // Load the required plugins.
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-concat");
+    grunt.loadNpmTasks("grunt-contrib-jshint");
+
+    // Default task(s).
+    grunt.registerTask("default", ["jshint", "concat", "uglify", "test"]);
 };

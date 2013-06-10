@@ -1,0 +1,10 @@
+/*!
+ * <%= pkg.name %>.
+ * <%= pkg.url %>
+ *
+ * Copyright <%= grunt.template.today('yyyy') %>, <%= pkg.author %> and contributors.
+ * Released under the <%= pkg.licence.name %> license.
+ * <%= pkg.licence.url %>
+ *
+ * <%= grunt.template.today('yyyy-mm-dd, HH:MM') %>.
+*/

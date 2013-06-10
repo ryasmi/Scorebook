@@ -63,7 +63,7 @@
             return self;
         };
 
-        self.addBall = function (batsman, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen, dateTime) {
+        self.addBall = function (batsman, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen) {
             appendTo(overs, balls, {
                 "batsman": batsman,
                 "runs": Number(runs),
@@ -77,16 +77,16 @@
                 "pitchY": Number(pitchY),
                 "batPen": Number(batPen),
                 "bwlPen": Number(bwlPen),
-                "dateTime": new Date(dateTime)
+                "dateTime": new Date()
             });
             return self;
         };
 
-        self.addWicket = function (batsman, howOut, fielderId) {
+        self.addWicket = function (batsman, howOut, fielder) {
             appendTo(balls, wickets, {
                 "batsman": batsman,
                 "howOut": howOut,
-                "fielderId": fielderId
+                "fielder": fielder
             });
             return self;
         };

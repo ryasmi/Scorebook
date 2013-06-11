@@ -3,8 +3,8 @@
   "author": "Ryan Smith",
   "url": "https://www.github.com/ryansmith94/Scorebook",
   "licence": {
-    "name": "CC BY-NC-SA 3.0",
-    "url": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+    "name": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

@@ -31,6 +31,10 @@
         });
     };
 
+    var nanToNumber = function (value) {
+        return isNaN(Number(value)) ? 0 : value;
+    };
+
     var Scorebook = function () {
         var self = this;
         var innings = [];
@@ -55,7 +59,7 @@
         self.addBall = function (batsman, runs, wideBall, noBall, byes, legByes, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen) {
             appendTo(overs, balls, {
                 "batsman": batsman,
-                "runs": Number(runs),
+                "runs": nanToNumber(runs),
                 "wideBall": Boolean(wideBall),
                 "noBall": Boolean(noBall),
                 "byes": Boolean(byes),
@@ -64,8 +68,8 @@
                 "wagonY": Number(wagonY),
                 "pitchX": Number(pitchX),
                 "pitchY": Number(pitchY),
-                "batPen": Number(batPen),
-                "bwlPen": Number(bwlPen),
+                "batPen": nanToNumber(batPen),
+                "bwlPen": nanToNumber(bwlPen),
                 "dateTime": new Date()
             });
             return self;

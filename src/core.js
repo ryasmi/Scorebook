@@ -111,10 +111,10 @@
         };
 
         self.data = {
-            innings: innings,
-            overs: overs,
-            balls: balls,
-            wickets: wickets
+            "innings": innings,
+            "overs": overs,
+            "balls": balls,
+            "wickets": wickets
         };
 
         return self;

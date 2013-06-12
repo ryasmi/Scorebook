@@ -52,7 +52,7 @@
             return self;
         };
 
-        self.addBall = function (batsman, runs, wideBall, noBall, byes, legByes, wicket, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen) {
+        self.addBall = function (batsman, runs, wideBall, noBall, byes, legByes, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen) {
             appendTo(overs, balls, {
                 "batsman": batsman,
                 "runs": Number(runs),

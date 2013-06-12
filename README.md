@@ -74,7 +74,7 @@ scorebook().addBall(batsman[, runs, wideBall, noBall, byes, legByes, wagonX, wag
 {Object} scorebook: A structure that can be manipulated like a scorebook.
 
 ### 3.4 addWicket
-Creates a new wicket in the scorebook for the current ball.
+Creates a new wicket in the scorebook for the current ball. Ensure that you have added the ball before adding the wicket.
 ```JavaScript
 scorebook().addWicket(batsman, howOut[, fielder]);
 ```

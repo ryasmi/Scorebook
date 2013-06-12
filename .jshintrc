@@ -58,7 +58,7 @@
     "maxdepth": 10,
     "maxlen": 300,
     "maxparams": 6,
-    "maxstatements": 30,
+    "maxstatements": 200,
     "newcap": true,
     "noarg": true,
     "noempty": true,

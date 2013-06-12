@@ -27,19 +27,9 @@
     };
 
     var getFrom = function (list, obj) {
-        var len = list.length - 1;
-        var matches = [];
-
-        (function check(item) {
-            if (resembles(obj, list[item])) {
-                matches.push(list[item]);
-            }
-            if (item < len) {
-                check(item + 1);
-            }
-        }(0));
-
-        return matches;
+        return list.filter(function (item) {
+            return resembles(obj, item);
+        });
     };
 
     var Scorebook = function () {

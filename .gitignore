@@ -4,3 +4,6 @@
 # Node.
 node_modules
 npm-debug.log
+
+# Compiled testing code.
+build/*.test.js

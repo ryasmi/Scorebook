@@ -3,13 +3,12 @@
     "use strict";
 
     var resembles = function (needle, haystack) {
-        var self = needle;
-        var keys = Object.keys(self);
+        var keys = Object.keys(needle);
         var len = keys.length;
         var key = 0;
 
         return (function check() {
-            if (self[keys[key]] === haystack[keys[key]]) {
+            if (needle[keys[key]] === haystack[keys[key]]) {
                 key += 1;
                 return (key <= len) ? check() : true;
             }

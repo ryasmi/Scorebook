@@ -1,5 +1,5 @@
 /* jshint -W072 */
-(function (scope) {
+(function (scope, Number, Boolean) {
     "use strict";
 
     var resembles = function (needle, haystack) {
@@ -123,4 +123,4 @@
     scope.scorebook = function () {
         return new Scorebook();
     };
-}(this));
+}(this, Number, Boolean));

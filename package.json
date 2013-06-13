@@ -1,20 +1,42 @@
 {
-  "name": "Scorebook",
-  "author": "Ryan Smith",
-  "url": "https://www.github.com/ryansmith94/Scorebook",
-  "licence": {
-    "name": "MIT",
-    "url": "http://opensource.org/licenses/MIT"
-  },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.5.4",
-    "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt-contrib-uglify": "~0.2.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-cli": "~0.1.8"
-  },
-  "scripts": {
-    "test": "grunt"
-  }
+    "name": "scorebook",
+    "author": "ryansmith94",
+    "homepage": "https://www.github.com/ryansmith94/Scorebook",
+    "description": "A JavaScript micro-library for cricket scoring.",
+    "keywords": [
+        "cricket",
+        "scoring"
+    ],
+    "bugs": {
+        "url": "http://github.com/ryansmith94/Scorebook/issues"
+    },
+    "version": "1371.1289.36095",
+    "licence": {
+        "type": "MIT",
+        "url": "http://opensource.org/licenses/MIT"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/ryansmith94/Scorebook.git"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.5.4",
+        "grunt-contrib-nodeunit": "~0.1.2",
+        "grunt-contrib-uglify": "~0.2.1",
+        "grunt-contrib-concat": "~0.3.0",
+        "grunt-cli": "~0.1.8",
+        "micro-assert": "~1371.1288.25812"
+    },
+    "scripts": {
+        "test": "grunt"
+    },
+    "engines": {
+        "node": ">= 0.8.0"
+    },
+    "readmeFilename": "readme.md",
+    "main": "./build/release.min.js",
+    "directories": {
+        "build": "build"
+    }
 }

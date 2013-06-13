@@ -1,7 +1,12 @@
-/* jshint node: true, -W061 */
+/* jshint node: true */
 module.exports = function (grunt) {
     "use strict";
     var pkg = grunt.file.readJSON("package.json");
+
+    // Calculate and write version number.
+    var now = (new Date()).getTime().toString();
+    pkg.version = now.substr(0, 4) + "." + now.substr(4, 4) + "." + now.substr(8);
+    grunt.file.write("package.json", JSON.stringify(pkg, null, 4));
 
     // Project configuration.
     grunt.initConfig({
@@ -42,14 +47,7 @@ module.exports = function (grunt) {
 
     // Custom task for running test files.
     grunt.registerTask("test", function () {
-        // Create console.
-        this.console = {};
-        this.console.log = grunt.log.oklns;
-        this.console.warn = grunt.fail.warn;
-
-        // Run code with tests.
-        eval(grunt.file.read("build/release.min.js"));
-        eval(grunt.file.read("build/release.test.js"));
+        require("./build/release.test.js");
     });
 
     // Load the required plugins.

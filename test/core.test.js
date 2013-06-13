@@ -1,10 +1,10 @@
-/* jshint -W072 */
-(function (scorebook, assert) {
+/* jshint maxstatements: false, node: true */
+(function () {
     "use strict";
 
     // Setup.
-    var test = assert();
-    var sb = scorebook();
+    var test = require("micro-assert").assert();
+    var sb = require("./release.min.js").scorebook();
     var d = sb.data;
     var team1 = {"name": "Team 1"};
     var team2 = {"name": "Team 2"};
@@ -163,4 +163,4 @@
 
     // Output test results.
     return test.result();
-}(this.scorebook, this.assert));
+}());

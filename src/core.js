@@ -1,6 +1,6 @@
 /* jshint -W072 */
 (function (scope, Number, Boolean) {
-    "use strict";
+    'use strict';
 
     var resembles = function (needle, haystack) {
         var keys = Object.keys(needle);
@@ -44,42 +44,42 @@
 
         self.addInnings = function (battingTeam) {
             appendTo([{children: []}], innings, {
-                "battingTeam": battingTeam
+                'battingTeam': battingTeam
             });
             return self;
         };
 
         self.addOver = function (bowler) {
             appendTo(innings, overs, {
-                "bowler": bowler
+                'bowler': bowler
             });
             return self;
         };
 
         self.addBall = function (batsman, runs, wideBall, noBall, byes, legByes, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen) {
             appendTo(overs, balls, {
-                "batsman": batsman,
-                "runs": nanToNumber(runs),
-                "wideBall": Boolean(wideBall),
-                "noBall": Boolean(noBall),
-                "byes": Boolean(byes),
-                "legByes": Boolean(legByes),
-                "wagonX": Number(wagonX),
-                "wagonY": Number(wagonY),
-                "pitchX": Number(pitchX),
-                "pitchY": Number(pitchY),
-                "batPen": nanToNumber(batPen),
-                "bwlPen": nanToNumber(bwlPen),
-                "dateTime": new Date()
+                'batsman': batsman,
+                'runs': nanToNumber(runs),
+                'wideBall': Boolean(wideBall),
+                'noBall': Boolean(noBall),
+                'byes': Boolean(byes),
+                'legByes': Boolean(legByes),
+                'wagonX': Number(wagonX),
+                'wagonY': Number(wagonY),
+                'pitchX': Number(pitchX),
+                'pitchY': Number(pitchY),
+                'batPen': nanToNumber(batPen),
+                'bwlPen': nanToNumber(bwlPen),
+                'dateTime': new Date()
             });
             return self;
         };
 
         self.addWicket = function (batsman, howOut, fielder) {
             appendTo(balls, wickets, {
-                "batsman": batsman,
-                "howOut": howOut,
-                "fielder": fielder
+                'batsman': batsman,
+                'howOut': howOut,
+                'fielder': fielder
             });
             return self;
         };
@@ -115,10 +115,10 @@
         };
 
         self.data = {
-            "innings": innings,
-            "overs": overs,
-            "balls": balls,
-            "wickets": wickets
+            'innings': innings,
+            'overs': overs,
+            'balls': balls,
+            'wickets': wickets
         };
 
         return self;

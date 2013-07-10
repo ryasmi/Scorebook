@@ -20,6 +20,7 @@ Scorebook is compatible with requireJS and can be used by wrapping your code in 
 require(['scorebook'], function (scorebook) {
 	// Your code.
 });
+```
 
 ## 2 Getting Started
 To create a new scorebook, use the global "scorebook" function.

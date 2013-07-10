@@ -124,7 +124,16 @@
         return self;
     };
 
-    scope.scorebook = function () {
+    var constructor = function () {
         return new Scorebook();
     };
+
+    // AMD Support.
+    if (typeof scope.define === 'Function') {
+        scope.define('scorebook', [], function () {
+            return constructor;
+        });
+    } else {
+        scope.scorebook = constructor;
+    }
 }(this, Number, Boolean));

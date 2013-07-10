@@ -15,6 +15,12 @@ Reference the [raw Github version](https://raw.github.com/ryansmith94/Scorebook/
 
 Scorebook is also available as a node package called "scorebook". You can install it to your local repository using `npm install scorebook --save-dev` and you can use the library with node by using `var scorebook = require("scorebook").scorebook;` in your JavaScript file.
 
+Scorebook is compatible with requireJS and can be used by wrapping your code in the following block:
+```JavaScript
+require(['scorebook'], function (scorebook) {
+	// Your code.
+});
+
 ## 2 Getting Started
 To create a new scorebook, use the global "scorebook" function.
 ```JavaScript

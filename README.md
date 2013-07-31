@@ -11,9 +11,8 @@ Please make contributions by [forking](https://github.com/ryansmith94/Scorebook/
 
 # Documentation
 ## 1 Installation
+### 1.1 Browser
 Reference the [raw Github version](https://raw.github.com/ryansmith94/Scorebook/master/build/release.min.js) of [release.min.js](https://www.github.com/ryansmith94/Scorebook/blob/master/build/release.min.js) in your code.
-
-Scorebook is also available as a node package called "scorebook". You can install it to your local repository using `npm install scorebook --save-dev` and you can use the library with node by using `var scorebook = require("scorebook").scorebook;` in your JavaScript file.
 
 Scorebook is compatible with requireJS and can be used by wrapping your code in the following block:
 ```JavaScript
@@ -21,6 +20,15 @@ require(['scorebook'], function (scorebook) {
 	// Your code.
 });
 ```
+
+### 1.2 Node
+Scorebook is also available as a node package called "scorebook". You can install it to your local repository using `npm install scorebook --save-dev` and you can use the library with node by using `var scorebook = require("scorebook").scorebook;` in your JavaScript file.
+
+### 1.3 Versioning
+This project is maintained under the [semantic versioning guidlines](http://semver.org/). This means that releases will have the following format `<major>.<minor>.<patch>`.
+* Breaking backward compatibility bumps the major (and resets the minor and patch).
+* New additions without breaking backward compatibility bumps the minor (and resets the patch).
+* Bug fixes and misc changes bumps the patch.
 
 ## 2 Getting Started
 To create a new scorebook, use the global "scorebook" function.

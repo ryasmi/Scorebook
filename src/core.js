@@ -129,7 +129,7 @@
     };
 
     // AMD Support.
-    if (typeof scope.define === 'Function') {
+    if (typeof scope.define === 'function') {
         scope.define('scorebook', [], function () {
             return constructor;
         });

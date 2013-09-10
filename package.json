@@ -1,42 +1,42 @@
 {
-    "name": "scorebook",
-    "author": "ryansmith94",
-    "homepage": "https://www.github.com/ryansmith94/Scorebook",
-    "description": "A JavaScript micro-library for cricket scoring.",
-    "keywords": [
-        "cricket",
-        "scoring"
-    ],
-    "bugs": {
-        "url": "http://github.com/ryansmith94/Scorebook/issues"
-    },
-    "version": "1.0.4",
-    "licence": {
-        "type": "MIT",
-        "url": "https://github.com/ryansmith94/Scorebook/blob/master/license.md"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/ryansmith94/Scorebook.git"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-contrib-jshint": "~0.5.4",
-        "grunt-contrib-uglify": "~0.2.1",
-        "grunt-contrib-concat": "~0.3.0",
-        "grunt-cli": "~0.1.8",
-        "expect.js": "~0.2.0",
-        "grunt-simple-mocha": "~0.4.0"
-    },
-    "scripts": {
-        "test": "grunt"
-    },
-    "engines": {
-        "node": ">= 0.8.0"
-    },
-    "readmeFilename": "readme.md",
-    "main": "./build/release.min.js",
-    "directories": {
-        "build": "build"
-    }
+  "name": "scorebook",
+  "author": "ryansmith94",
+  "homepage": "https://www.github.com/ryansmith94/Scorebook",
+  "description": "A JavaScript micro-library for cricket scoring.",
+  "keywords": [
+    "cricket",
+    "scoring"
+  ],
+  "bugs": {
+    "url": "http://github.com/ryansmith94/Scorebook/issues"
+  },
+  "version": "1.0.4",
+  "licence": {
+    "type": "MIT",
+    "url": "https://github.com/ryansmith94/Scorebook/blob/master/license.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryansmith94/Scorebook.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.5.4",
+    "grunt-contrib-uglify": "~0.2.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-cli": "~0.1.8",
+    "expect.js": "~0.2.0",
+    "grunt-simple-mocha": "~0.4.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "readmeFilename": "readme.md",
+  "main": "./build/release.min.js",
+  "directories": {
+    "build": "build"
+  }
 }

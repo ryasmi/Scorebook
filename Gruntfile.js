@@ -1,6 +1,8 @@
 /* jshint node: true */
 module.exports = function (grunt) {
     'use strict';
+    var srcFiles = 'src/**/*.js';
+    var testFiles = 'test/**/*.js';
 
     // Project configuration.
     grunt.initConfig({
@@ -10,34 +12,36 @@ module.exports = function (grunt) {
                 banner: grunt.file.read('src/banner.txt') + '\n'
             },
             build: {
-                src: 'build/release.min.js',
-                dest: 'build/release.min.js'
+                src: '<%= pkg.main %>',
+                dest: '<%= pkg.main %>'
             }
         },
         concat: {
             options: {
                 separator: ';'
             },
-            dist: {
-                src: ['src/**/*.js'],
-                dest: 'build/release.min.js'
+            source: {
+                src: srcFiles,
+                dest: '<%= pkg.main %>'
             }
         },
         jshint: {
-            files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+            files: ['Gruntfile.js', srcFiles, testFiles],
             options: {
                 jshintrc: '.jshintrc'
             }
         },
         simplemocha: {
             options: {
-                globals: ['expect'],
+                globals: ['chai'],
                 timeout: 3000,
                 ignoreLeaks: false,
                 ui: 'bdd',
                 reporter: 'spec'
             },
-            all: { src: ['test/**/*.js'] }
+            test: {
+                src: testFiles
+            }
         }
     });
 

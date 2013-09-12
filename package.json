@@ -36,7 +36,7 @@
     "node": ">= 0.8.0"
   },
   "readmeFilename": "readme.md",
-  "main": "./build/release.min.js",
+  "main": "build/release.min.js",
   "directories": {
     "build": "build"
   }

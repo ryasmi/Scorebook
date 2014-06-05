@@ -4,7 +4,7 @@ A JavaScript micro-library for cricket scoring created for use in cricket scorin
 [![Build Status](https://travis-ci.org/ryansmith94/Scorebook.png)](https://travis-ci.org/ryansmith94/Scorebook)
 
 **License**   
-[This work is licensed under a Attribution-NonCommercial-ShareAlike 4.0 International
+This work is licensed under a [Attribution-NonCommercial-ShareAlike 4.0 International
 license](https://gist.githubusercontent.com/ryansmith94/b947ee33d7bfffff9d16/raw/bcd4b00739543c4a215a1f60538d899e2c22cdfd/BY-NC-SA.txt).
 
 **Contributing**   

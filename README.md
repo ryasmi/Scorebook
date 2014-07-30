@@ -171,9 +171,3 @@ None.
 * {Array} overs: An array of overs contained in the scorebook.
 * {Array} balls: An array of balls contained in the scorebook.
 * {Array} wickets: An array of wickets contained in the scorebook.
-
-## 5 Change Log
-### 2.0.0
-* Re-orders parameters for addBall since the batsman is *more* optional than *runs*.
-* Adds opts parameter to addBall to reduce the number of optional arguments.
-* Adds data properties to the scorebook object.

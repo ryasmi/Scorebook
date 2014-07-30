@@ -10,6 +10,8 @@ license](https://gist.githubusercontent.com/ryansmith94/b947ee33d7bfffff9d16/raw
 **Contributing**
 Please make contributions by [forking](https://github.com/ryansmith94/Scorebook/fork "/fork") the project and creating a [pull-request](https://github.com/ryansmith94/Scorebook/pull/new/master "/pull-request"). Other contributions include maintaining the [Wiki](https://github.com/ryansmith94/Scorebook/wiki "/wiki") and [issues](https://github.com/ryansmith94/Scorebook/issues?state=open "/issues").
 
+Also if you have used this library, [email me](mailto:ryansmith@boun.cr) and tell me how you have used it becayse I'd like to provide links to showcase your projects :smile:.
+
 # Documentation
 ## 1 Installation
 ### 1.1 Browser

@@ -138,7 +138,7 @@
                 s.balls.push(ball);
             });
 
-            it('should get overs', function () {
+            it('should get balls', function () {
                 expect(s.getBalls({batsman: batsman})[0]).to.be.equal(ball);
             });
         });
@@ -154,7 +154,7 @@
                 s.wickets.push(wicket);
             });
 
-            it('should get overs', function () {
+            it('should get wickets', function () {
                 expect(s.getWickets({batsman: batsman})[0]).to.be.equal(wicket);
             });
         });

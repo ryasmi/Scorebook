@@ -71,7 +71,18 @@ scorebook().addOver(bowler);
 ### 3.3 addBall
 Creates a new ball in the scorebook for the current over.
 ```JavaScript
-scorebook().addBall(batsman[, runs, wideBall, noBall, byes, legByes, wagonX, wagonY, pitchX, pitchY, batPen, bwlPen]);
+scorebook().addBall(runs, batsman, {
+	wideBall: false,
+	noBall: false,
+	byes: false,
+	legByes: false,
+	wagonX: 0,
+	wagonY: 0,
+	pitchX: 0,
+	pitchY: 0,
+	batPen: 0,
+	bwlPen: 0
+});
 ```
 
 **Arguments**

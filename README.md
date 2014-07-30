@@ -34,7 +34,7 @@ This project is maintained under the [semantic versioning guidlines](http://semv
 ## 2 Getting Started
 To create a new scorebook, use the global "scorebook" function.
 ```JavaScript
-scorebook();
+book = scorebook();
 ```
 
 **Arguments**
@@ -47,7 +47,7 @@ None.
 ### 3.1 addInnings
 Creates a new innings in the scorebook.
 ```JavaScript
-scorebook().addInnings(battingTeam);
+book.addInnings(battingTeam);
 ```
 
 **Arguments**
@@ -59,7 +59,7 @@ scorebook().addInnings(battingTeam);
 ### 3.2 addOver
 Creates a new over in the scorebook for the current innings.
 ```JavaScript
-scorebook().addOver(bowler);
+book.addOver(bowler);
 ```
 
 **Arguments**
@@ -71,7 +71,7 @@ scorebook().addOver(bowler);
 ### 3.3 addBall
 Creates a new ball in the scorebook for the current over.
 ```JavaScript
-scorebook().addBall(runs, batsman, {
+book.addBall(runs, batsman, {
 	wideBall: false,
 	noBall: false,
 	byes: false,
@@ -106,7 +106,7 @@ scorebook().addBall(runs, batsman, {
 ### 3.4 addWicket
 Creates a new wicket in the scorebook for the current ball. Ensure that you have added the ball before adding the wicket.
 ```JavaScript
-scorebook().addWicket(batsman, howOut[, fielder]);
+book.addWicket(batsman, howOut[, fielder]);
 ```
 
 **Arguments**
@@ -120,7 +120,7 @@ scorebook().addWicket(batsman, howOut[, fielder]);
 ### 3.5 getInnings
 Gets innings from the scorebook.
 ```JavaScript
-scorebook().getInnings(inning);
+book.getInnings(inning);
 ```
 
 **Arguments**
@@ -132,7 +132,7 @@ scorebook().getInnings(inning);
 ### 3.6 getOvers
 Gets overs from the scorebook.
 ```JavaScript
-scorebook().getOvers(over);
+book.getOvers(over);
 ```
 
 **Arguments**
@@ -144,7 +144,7 @@ scorebook().getOvers(over);
 ### 3.7 getBalls
 Gets balls from the scorebook.
 ```JavaScript
-scorebook().getBalls(ball);
+book.getBalls(ball);
 ```
 
 **Arguments**
@@ -156,7 +156,7 @@ scorebook().getBalls(ball);
 ### 3.8 getWickets
 Gets wickets from the scorebook.
 ```JavaScript
-scorebook().getWickets(wicket);
+book.getWickets(wicket);
 ```
 
 **Arguments**
@@ -168,7 +168,7 @@ scorebook().getWickets(wicket);
 ### 3.9 undo
 Undoes the last action.
 ```JavaScript
-scorebook().undo();
+book.undo();
 ```
 
 **Arguments**

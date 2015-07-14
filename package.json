@@ -12,8 +12,8 @@
   },
   "version": "2.0.0",
   "licence": {
-    "type": "MIT",
-    "url": "https://github.com/ryansmith94/Scorebook/blob/master/license.md"
+    "type": "ShareAlike",
+    "url": "https://gist.githubusercontent.com/ryansmith94/b947ee33d7bfffff9d16/raw/bcd4b00739543c4a215a1f60538d899e2c22cdfd/BY-NC-SA.txt"
   },
   "repository": {
     "type": "git",

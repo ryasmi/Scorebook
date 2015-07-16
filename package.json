@@ -11,10 +11,7 @@
     "url": "http://github.com/ryansmith94/Scorebook/issues"
   },
   "version": "2.0.0",
-  "licence": {
-    "type": "ShareAlike",
-    "url": "https://gist.githubusercontent.com/ryansmith94/b947ee33d7bfffff9d16/raw/bcd4b00739543c4a215a1f60538d899e2c22cdfd/BY-NC-SA.txt"
-  },
+  "license": "CC-BY-NC-SA-4.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/ryansmith94/Scorebook.git"

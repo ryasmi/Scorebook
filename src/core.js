@@ -87,7 +87,7 @@
             };
         });
 
-        self.addWicket = appendTo(self, self.balls, self.wickets, function (howOut, batsman, fielder) {
+        self.addWicket = appendTo(self, self.balls, self.wickets, function (batsman, howOut, fielder) {
             return {
                 'batsman': batsman || self.balls[self.balls.length - 1].batsman,
                 'howOut': howOut,

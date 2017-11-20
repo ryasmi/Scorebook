@@ -93,7 +93,7 @@
             });
 
             it('should create a wicket', function () {
-                s.addWicket(howOut, null, fielder);
+                s.addWicket(batsman, howOut, fielder);
                 expect(s.wickets[0].batsman).to.be.equal(batsman);
                 expect(s.wickets[0].howOut).to.be.equal(howOut);
                 expect(s.wickets[0].fielder).to.be.equal(fielder);
